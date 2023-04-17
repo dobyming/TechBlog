@@ -12,6 +12,14 @@ module.exports = {
         allExtensions: true,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/ // See below to configure properly
+        }
+      }
+    },
     `gatsby-plugin-emotion`,
     // `gatsby-plugin-react-helmet`,
     // {

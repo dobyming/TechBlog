@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import ProfileImage from 'components/Main/ProfileImage'
+import HomeIcon from '../../assets/home.svg'
 
 const Background = styled.div`
   width: 100%;
@@ -39,6 +41,9 @@ const Introduction: FunctionComponent = function () {
           <SubTitle>Good to See you!</SubTitle>
           <Title>I'm Junior FE Developer dobyming.</Title>
         </div>
+        <Link to="https://damin-kim-portfolio.web.app/" target={'_blank'}>
+          <HomeIcon />
+        </Link>
       </Wrapper>
     </Background>
   )
