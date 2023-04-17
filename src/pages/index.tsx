@@ -1,8 +1,23 @@
 import React, { FunctionComponent } from 'react'
-import Text from 'components/Test'
+import styled from '@emotion/styled'
+import GlobalStyle from 'components/Common/GlobalStyle'
+import Introduction from 'components/Main/Introduction'
+import Footer from 'components/Common/Footer'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`
 
 const IndexPage: FunctionComponent = function () {
-  return <Text text="Just for Testing if Gatsby Framework works well" />
+  return (
+    <Container>
+      <GlobalStyle />
+      <Introduction />
+      <Footer />
+    </Container>
+  )
 }
 
 export default IndexPage
