@@ -1,5 +1,5 @@
 # 📝 Tech Blog 
-Gatsby Framework를 활용하여 저만의 정적 기술 블로그 웹사이트입니다. 
+Gatsby Framework를 활용한 저만의 정적 기술 블로그 웹사이트입니다. 
 
 ## 🚀 Quick start
 Gatsby로 프로젝트를 시작하기 위해서는 Node.js의 version은 **`18.0.0`** 이상 요구됩니다.
