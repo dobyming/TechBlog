@@ -19,6 +19,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
   },
-  "include": ["src/**/*.tsx","src/custom.d.ts"],
+  "include": ["src/**/*.tsx","src/custom.d.ts","src/types/PostItem.types.ts"],
   "exclude": ["node_modules"]
 }
