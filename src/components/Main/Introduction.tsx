@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react'
-import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import HomeIcon from '../../assets/home.svg'
@@ -60,9 +59,9 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
           <SubTitle>Good to See you!</SubTitle>
           <Title>I'm Junior FE Developer dobyming.</Title>
         </div>
-        <Link to="https://damin-kim-portfolio.web.app/" target={'_blank'}>
+        <a href="https://damin-kim-portfolio.web.app/" target={'_blank'}>
           <HomeIcon />
-        </Link>
+        </a>
       </Wrapper>
     </Background>
   )
