@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-// 자신이 원하는 프로필 이미지 링크로 설정해주세요.
-const PROFILE_IMAGE_LINK =
-  'https://velog.velcdn.com/images/damin1025/profile/0b2f1a99-c5a2-4a2d-87f4-73b964a276a5/image.jpg'
+type ProfileImageProps = {
+  profileImage: IGatsbyImageData
+}
 
 // Tagged Template Literal 방식을 통한 styled Component
-const ProfileImageWrapper = styled.img`
+const ProfileImageWrapper = styled(GatsbyImage)`
   width: 120px;
   height: 120px;
   margin-bottom: 30px;
@@ -18,8 +19,10 @@ const ProfileImageWrapper = styled.img`
   }
 `
 
-const ProfileImage: FunctionComponent = function () {
-  return <ProfileImageWrapper src={PROFILE_IMAGE_LINK} alt="Profile Image" />
+const ProfileImage: FunctionComponent<ProfileImageProps> = function ({
+  profileImage,
+}) {
+  return <ProfileImageWrapper image={profileImage} alt="Profile Image" />
 }
 
 export default ProfileImage
