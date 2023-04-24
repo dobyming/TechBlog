@@ -9,7 +9,7 @@ import CommentWidget from 'components/Post/CommentWidget'
 type PostTemplateProps = {
   data: {
     allMarkdownRemark: {
-      edges: PostPageItemType[] // 존재하지 않는 타입이므로 에러가 발생하지만 일단 작성해주세요
+      edges: PostPageItemType[]
     }
   }
   location: {
@@ -28,7 +28,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
       html,
       frontmatter: {
         title,
-        summary, // 나중에 사용할 예정입니다!
+        summary,
         date,
         categories,
         thumbnail: {
