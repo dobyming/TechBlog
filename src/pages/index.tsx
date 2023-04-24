@@ -1,8 +1,5 @@
 import React, { FunctionComponent, useMemo } from 'react'
-import styled from '@emotion/styled'
-import GlobalStyle from 'components/Common/GlobalStyle'
 import Introduction from 'components/Main/Introduction'
-import Footer from 'components/Common/Footer'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList, { PostType } from 'components/Main/PostList'
 import { graphql } from 'gatsby'
@@ -11,11 +8,6 @@ import { PostListItemType } from 'types/PostItem.types'
 import queryString, { ParsedQuery } from 'query-string'
 import Template from 'components/Common/Template'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-`
 // data props의 type을 명시
 type IndexPageProps = {
   location: {

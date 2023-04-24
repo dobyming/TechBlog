@@ -1,5 +1,12 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
+export type PostPageItemType = {
+  node: {
+    html: string
+    frontmatter: PostFrontmatterType
+  }
+}
+
 export type PostFrontmatterType = {
   title: string
   date: string
