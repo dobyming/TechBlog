@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `dobyming - TechBlog`,
+    description: `주니어 프론트엔드 개발자로서 TIL을 남기는 공간입니다.`,
+    author: `dobyming`,
+    siteUrl: 'https://my-website-link.com', // 배포 후 변경
   },
   plugins: [
     {
@@ -13,6 +14,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://my-website.com/',
+        stripQueryString: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
@@ -20,7 +28,14 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     `gatsby-plugin-emotion`,
+    'gatsby-plugin-sitemap',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

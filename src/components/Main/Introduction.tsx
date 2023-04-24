@@ -56,7 +56,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
       <Wrapper>
         <ProfileImage profileImage={profileImage} />
         <div>
-          <SubTitle>Good to See you!</SubTitle>
+          <SubTitle>제 개발 블로그에 방문 해주셔서 감사해요😘</SubTitle>
           <Title>I'm Junior FE Developer dobyming.</Title>
         </div>
         <a href="https://damin-kim-portfolio.web.app/" target={'_blank'}>

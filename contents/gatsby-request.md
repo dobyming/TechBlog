@@ -18,7 +18,6 @@ GraphQL은 페이스북에서 개발한 **쿼리 언어**입니다.
 
 우선 `pages` 폴더 내에 `info.tsx`를 선언합니다. 
 
-▶ `src/pages/info.tsx`
 ```tsx
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
@@ -39,8 +38,6 @@ export default InfoPage
 
 그리고 query를 정의합니다. 
 ```tsx
-▶ src/pages/info.tsx
-
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import Text from 'components/Text'
@@ -75,8 +72,6 @@ export const metadataQuery = graphql`
 
 그러면 마지막으로 `InfoPage` 컴포넌트의 매개변수로 값을 불러오면서 Gatsby에서 GraphQL을 통한 Query 요청 작업이 마무리 됩니다. 
 ```tsx
-▶ src/pages/info.tsx
-
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import Text from 'components/Text'
