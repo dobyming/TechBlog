@@ -35,6 +35,5 @@ import { Link } from 'gatsby'
 즉 Prefetch는 이와 같은 개념입니다. 
 
 1. 페이지가 로드가 됌 -> 현재 로드된 페이지 내에서 사용되는 모든 링크 찾은 후 -> 각 링크의 페이지를 <span style="color:red">미리</span> 로드 
-2. 즉 예를 들면, 
-`index.tsx` 페이지 로드가 됨 -> 동시에 `Link` 태그를 찾음(`/info`) -> 이 페이지(`info`)를 미리 로드해둠 
+2. 즉 예를 들면, `index.tsx` 페이지 로드가 됨 -> 동시에 `Link` 태그를 찾음(`/info`) -> 이 페이지(`info`)를 미리 로드해둠 
 

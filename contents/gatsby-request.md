@@ -1,9 +1,9 @@
 ---
 date: '2023-04-17'
 title: 'Gatsby - GraphQL로 query 요청하기'
-categories: ['Web', 'Gatsby']
+categories: ['Web', 'Gatsby','GraphQL']
 summary: '정적 웹사이트의 콘텐츠 데이터를 관리하는데 있어 GraphQL로 진행할 수 있습니다. '
-thumbnail: './gatsby.jpg'
+thumbnail: './graphql.png'
 ---
 
 ## GraphQL이란?
@@ -35,8 +35,8 @@ const InfoPage: FunctionComponent<InfoPageProps> = function () {
 
 export default InfoPage
 ```
+일반적인 컴포넌트에서는 변수로서 정의가 불가능하고, **StaticQuery**라는 기능을 통해 정의가 가능합니다. pages 폴더 내부에 있는 컴포넌트에서는 다음과 같이 Query를 정의하고 요청할 수 있습니다.
 
-그리고 query를 정의합니다. 
 ```tsx
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
@@ -68,9 +68,7 @@ export const metadataQuery = graphql`
 `
 ```
 
-`metadataQuery` 변수에 요청한 Query를 요청 시, 요청에 대한 응답 값은 `InfoPage`의 Props로 전달해줍니다. 
-
-그러면 마지막으로 `InfoPage` 컴포넌트의 매개변수로 값을 불러오면서 Gatsby에서 GraphQL을 통한 Query 요청 작업이 마무리 됩니다. 
+`metadataQuery` 변수에 요청한 Query를 요청 시, 요청에 대한 응답 값은 `InfoPage` 컴포넌트의 Props로 전달해줍니다. 마지막으로 `InfoPage` 컴포넌트의 매개변수로 값을 불러오면서 Gatsby에서 GraphQL을 통한 Query 요청 작업이 마무리 됩니다. 
 ```tsx
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
