@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
+// 부모 컴포넌트(index.tsx)로 props를 받아서 처리
 export type CategoryListProps = {
   selectedCategory: string
   categoryList: {
