@@ -5,6 +5,7 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
+import ScrollToTop from 'components/Common/ScrollToTop'
 
 type PostTemplateProps = {
   data: {
@@ -49,6 +50,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
       />
       <PostContent html={html} />
       <CommentWidget />
+      <ScrollToTop />
     </Template>
   )
 }
