@@ -7,6 +7,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { PostListItemType } from 'types/PostItem.types'
 import queryString, { ParsedQuery } from 'query-string'
 import Template from 'components/Common/Template'
+import ScrollToTop from 'components/Common/ScrollToTop'
 
 // data props의 type을 명시
 type IndexPageProps = {
@@ -91,6 +92,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
+      <ScrollToTop />
     </Template>
   )
 }
