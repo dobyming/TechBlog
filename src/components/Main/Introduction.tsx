@@ -10,12 +10,8 @@ type IntroductionProps = {
 
 const Background = styled.div`
   width: 100%;
-  background-image: radial-gradient(
-    circle at 1.8% 4.8%,
-    rgb(17, 23, 58) 0%,
-    rgb(58, 85, 148) 90%
-  );
-  color: #ffffff;
+  background-color: #0e2f44;
+  color: #ece75f;
 `
 const Wrapper = styled.div`
   display: flex;
