@@ -29,7 +29,7 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
   // when to show toggleBtn
   const toggleVisibility = () => {
-    window.pageYOffset > 800 ? setIsVisible(true) : setIsVisible(false)
+    window.pageYOffset > 400 ? setIsVisible(true) : setIsVisible(false)
   }
 
   // make scroll smoothly
@@ -55,7 +55,11 @@ const ScrollToTop = () => {
           animate="animate"
           exit="initial"
         >
-          <FontAwesomeIcon icon={faArrowAltCircleUp} />
+          <FontAwesomeIcon
+            icon={faArrowAltCircleUp}
+            height="40px"
+            width="40px"
+          />
         </MotionButton>
       )}
     </AnimatePresence>

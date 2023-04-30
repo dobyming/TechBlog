@@ -16,7 +16,9 @@ const FooterWrapper = styled.footer`
 `
 const Footer: FunctionComponent = function () {
   return (
-    <FooterWrapper>&copy; 2023 Damin-Kim, Powered By Gatsby.</FooterWrapper>
+    <FooterWrapper>
+      &copy; {new Date().getFullYear()} Damin-Kim, Powered By Gatsby.
+    </FooterWrapper>
   )
 }
 

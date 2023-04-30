@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import HomeIcon from '../../assets/home.svg'
 import ProfileImage from './ProfileImage'
+import HeaderTheme from 'components/Common/HeaderTheme'
 
 type IntroductionProps = {
   profileImage: IGatsbyImageData
@@ -10,8 +11,8 @@ type IntroductionProps = {
 
 const Background = styled.div`
   width: 100%;
-  background-color: #0e2f44;
-  color: #ece75f;
+  background-color: #393e46;
+  color: #f6f6f6;
 `
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 768px;
-  height: 400px;
+  height: 320px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
@@ -51,6 +52,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
     <Background>
       <Wrapper>
         <ProfileImage profileImage={profileImage} />
+        <HeaderTheme />
         <div>
           <SubTitle>제 개발 블로그에 방문 해주셔서 감사해요😘</SubTitle>
           <Title>I'm Junior FE Developer dobyming.</Title>
