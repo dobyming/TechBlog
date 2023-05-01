@@ -3,7 +3,7 @@ date: '2023-01-20'
 title: 'JavaScript - 동기와 비동기 처리'
 categories: ['JavaScript']
 summary: '이번 포스팅에선 자바스크립트의 2가지 동작 방식인 동기와 비동기처리에 대해서 다뤄보겠습니다.'
-thumbnail: './jsicon.png'
+thumbnail: './images/jsicon.png'
 ---
 
 ## 동기와 비동기 (Synchronus , Asynchronus)
