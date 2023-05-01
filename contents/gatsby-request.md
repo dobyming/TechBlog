@@ -3,7 +3,7 @@ date: '2023-04-17'
 title: 'Gatsby - GraphQL로 query 요청하기'
 categories: ['Web', 'Gatsby','GraphQL']
 summary: '정적 웹사이트의 콘텐츠 데이터를 관리하는데 있어 GraphQL로 진행할 수 있습니다. '
-thumbnail: './graphql.png'
+thumbnail: './images/graphql.png'
 ---
 
 ## GraphQL이란?
