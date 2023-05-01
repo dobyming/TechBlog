@@ -29,13 +29,14 @@ const MarkdownRenderer = styled.div`
   h2,
   h3 {
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   * + h1,
   * + h2,
-  * + h3 {
-    margin-top: 80px;
+  * + h3,
+  * + h4 {
+    margin-top: 50px;
   }
 
   hr + h1,
@@ -79,8 +80,12 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Link Element Style
   a {
-    color: #4263eb;
-    text-decoration: underline;
+    color: #00a170;
+    text-decoration: none;
+  }
+  ,
+  a:hover {
+    color: #f6546a;
   }
 
   // Adjust Code Style
