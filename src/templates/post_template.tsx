@@ -6,6 +6,7 @@ import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
 import ScrollToTop from 'components/Common/ScrollToTop'
+import HeaderTheme from 'components/Common/HeaderTheme'
 
 type PostTemplateProps = {
   data: {
@@ -48,6 +49,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         categories={categories}
         thumbnail={gatsbyImageData}
       />
+      <HeaderTheme />
       <PostContent html={html} />
       <CommentWidget />
       <ScrollToTop />

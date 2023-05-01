@@ -1,12 +1,10 @@
 body {
     --color-background:#f6f6f6;
-    --color-text: black;
 }
 
 .dark {
     --color-background: #393E46;
     --color-text: #f6f6f6;
-    --color-hover: #ece75f
 }
 
 body{
