@@ -38,6 +38,12 @@ module.exports = {
     'gatsby-plugin-sitemap',
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: "src/assets/favicon-32x32.png",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `contents`,
