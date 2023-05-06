@@ -9,6 +9,7 @@ body {
 
 body{
     background-color: var(--color-background);
+    transition: 0.2s;
 }
 
 h1,

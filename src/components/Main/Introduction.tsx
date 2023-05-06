@@ -1,13 +1,7 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
-import ProfileImage from './ProfileImage'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import GithubIcon from '../../assets/github.svg'
-
-type IntroductionProps = {
-  profileImage: IGatsbyImageData
-}
 
 const Background = styled.div`
   width: 100%;
@@ -25,12 +19,12 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 768px;
-  height: 230px;
+  height: 100px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 150px;
+    height: 95px;
     padding: 0 20px;
   }
 `
@@ -43,13 +37,10 @@ const Title = styled.div`
   }
 `
 
-const Introduction: FunctionComponent<IntroductionProps> = function ({
-  profileImage,
-}) {
+const Introduction = () => {
   return (
     <Background>
       <Wrapper>
-        <ProfileImage profileImage={profileImage} />
         <HeaderTheme />
         <div>
           <Title>dobyming</Title>
