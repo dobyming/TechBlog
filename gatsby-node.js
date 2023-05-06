@@ -74,21 +74,46 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     'src/templates/post_template.tsx',
   );
 
-  // Page Generating Function
-  const generatePostPage = ({
-    node: {
-      fields: { slug },
+  const posts = queryAllMarkdownData.data.allMarkdownRemark.edges
+  posts.forEach((
+    {
+      node: {
+        fields: { slug },
+      },
     },
-  }) => {
-    const pageOptions = {
+    index,
+  ) => {
+    createPage({
       path: slug,
       component: PostTemplateComponent,
-      context: { slug },
-    };
+      context: {
+        slug,
+        prev: index === 0 
+        ? null 
+        : {
+          slug: posts[index - 1].node.fields.slug,
+        },
+        next: index === posts.length - 1 
+        ? null 
+        : {
+          slug: posts[index + 1].node.fields.slug,
+        }
+      }
+    })
+  })
 
-    createPage(pageOptions);
-  };
+  // // Page Generating Function
+  // const generatePostPage = ({
+  //   node: {
+  //     fields: { slug },
+  //   },
+  // }) => {
+  //   const pageOptions = {
+  //     path: slug,
+  //     component: PostTemplateComponent,
+  //     context: { slug },
+  //   };
 
-  // Generate Post Page And Passing Slug Props for Query
-  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(generatePostPage);
+  //   createPage(pageOptions);
+  // };
 };
