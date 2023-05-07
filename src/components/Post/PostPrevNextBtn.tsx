@@ -43,8 +43,8 @@ const StyledPager = styled.nav`
   }
 `
 export type PrevNextProps = {
-  previousPagePath: string | null
-  nextPagePath: string | null
+  previousPagePath: string
+  nextPagePath: string
 }
 
 const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
@@ -55,8 +55,8 @@ const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
     <StyledPager>
       <ul>
         <li>
-          {previousPagePath ? (
-            <Link to={previousPagePath}>
+          {previousPagePath !== null ? (
+            <Link to={previousPagePath.slug}>
               <Left /> 이전글
             </Link>
           ) : (
@@ -67,8 +67,8 @@ const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
         </li>
 
         <li>
-          {nextPagePath ? (
-            <Link to={nextPagePath}>
+          {nextPagePath !== null ? (
+            <Link to={nextPagePath.slug}>
               다음글 <Right />
             </Link>
           ) : (

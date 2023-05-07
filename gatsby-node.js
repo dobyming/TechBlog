@@ -56,6 +56,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 slug
               }
             }
+            next {
+              fields {
+                slug
+              }
+            }
+            previous {
+              fields {
+                slug
+              }
+            }
           }
         }
       }
@@ -81,23 +91,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         fields: { slug },
       },
     },
-    index,
   ) => {
     createPage({
       path: slug,
       component: PostTemplateComponent,
       context: {
         slug,
-        prev: index === 0 
-        ? null 
-        : {
-          slug: posts[index - 1].node.fields.slug,
-        },
-        next: index === posts.length - 1 
-        ? null 
-        : {
-          slug: posts[index + 1].node.fields.slug,
-        }
+        prev: next.fields.slug,
+        next: previous.fields.slug
       }
     })
   })

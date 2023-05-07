@@ -29,8 +29,9 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
     allMarkdownRemark: { edges },
   },
   location: { href },
-  pageContext: { prev, next },
+  pageContext,
 }) {
+  // console.log(pageContext.next)
   const {
     node: {
       html,
@@ -57,7 +58,10 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
       />
       <HeaderTheme />
       <PostContent html={html} />
-      <PostPrevNextBtn previousPagePath={prev} nextPagePath={next} />
+      <PostPrevNextBtn
+        previousPagePath={pageContext.prev}
+        nextPagePath={pageContext.next}
+      />
       <CommentWidget />
       <ScrollToTop />
     </Template>
