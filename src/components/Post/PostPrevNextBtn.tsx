@@ -4,6 +4,8 @@ import Right from '../../assets/right-icon.svg'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby-link'
 
+const isBrowser = () => typeof window !== 'undefined'
+
 const StyledPager = styled.nav`
   height: 56px;
   margin-bottom: 30px;
@@ -29,7 +31,7 @@ const StyledPager = styled.nav`
   }
 
   a {
-    color: #333;
+    color: ${isBrowser() && window.document.body.classList.contains('dark')};
     text-decoration: none;
   }
 
