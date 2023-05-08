@@ -95,19 +95,4 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     })
   })
-
-  // // Page Generating Function
-  // const generatePostPage = ({
-  //   node: {
-  //     fields: { slug },
-  //   },
-  // }) => {
-  //   const pageOptions = {
-  //     path: slug,
-  //     component: PostTemplateComponent,
-  //     context: { slug },
-  //   };
-
-  //   createPage(pageOptions);
-  // };
 };
