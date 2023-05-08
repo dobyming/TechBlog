@@ -29,7 +29,7 @@ const StyledPager = styled.nav`
   }
 
   a {
-    color: #333;
+    color: ${document.body.classList.contains('dark')};
     text-decoration: none;
   }
 
