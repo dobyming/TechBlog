@@ -43,8 +43,8 @@ const StyledPager = styled.nav`
   }
 `
 export type PrevNextProps = {
-  previousPagePath: string | null
-  nextPagePath: string | null
+  previousPagePath: string
+  nextPagePath: string
 }
 
 const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
