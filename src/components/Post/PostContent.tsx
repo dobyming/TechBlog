@@ -72,6 +72,10 @@ const MarkdownRenderer = styled.div`
     padding: 30px 0;
   }
 
+  img {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
   // Adjust Horizontal Rule style
   hr {
     border: 1px solid #000000;
