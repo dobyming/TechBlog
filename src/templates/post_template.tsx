@@ -7,6 +7,7 @@ import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
 import ScrollToTop from 'components/Common/ScrollToTop'
 import HeaderTheme from 'components/Common/HeaderTheme'
+import PostPrevNextBtn from 'components/Post/PostPrevNextBtn'
 
 type PostTemplateProps = {
   data: {
@@ -17,6 +18,22 @@ type PostTemplateProps = {
   location: {
     href: string
   }
+  pageContext: {
+    prev: {
+      node: {
+        fields: {
+          slug: string
+        }
+      }
+    }
+    next: {
+      node: {
+        fields: {
+          slug: string
+        }
+      }
+    }
+  }
 }
 
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
@@ -24,6 +41,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
     allMarkdownRemark: { edges },
   },
   location: { href },
+  pageContext: { prev, next },
 }) {
   const {
     node: {
@@ -51,6 +69,10 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
       />
       <HeaderTheme />
       <PostContent html={html} />
+      <PostPrevNextBtn
+        previousPagePath={prev ? prev.node.fields.slug : null}
+        nextPagePath={next ? next.node.fields.slug : null}
+      />
       <CommentWidget />
       <ScrollToTop />
     </Template>
