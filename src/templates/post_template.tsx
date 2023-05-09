@@ -8,6 +8,8 @@ import CommentWidget from 'components/Post/CommentWidget'
 import ScrollToTop from 'components/Common/ScrollToTop'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import PostPrevNextBtn from 'components/Post/PostPrevNextBtn'
+import PostToc from 'components/Post/PostToc'
+import styled from '@emotion/styled'
 
 type PostTemplateProps = {
   data: {
@@ -36,6 +38,12 @@ type PostTemplateProps = {
   }
 }
 
+const TocWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+`
+
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
@@ -46,6 +54,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   const {
     node: {
       html,
+      tableOfContents,
       frontmatter: {
         title,
         summary,
@@ -58,7 +67,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
       },
     },
   } = edges[0]
-
+  console.log(tableOfContents)
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
       <PostHead
@@ -68,6 +77,9 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         thumbnail={gatsbyImageData}
       />
       <HeaderTheme />
+      <TocWrapper>
+        <PostToc toc={tableOfContents} />
+      </TocWrapper>
       <PostContent html={html} />
       <PostPrevNextBtn
         previousPagePath={prev ? prev.node.fields.slug : null}
@@ -88,6 +100,7 @@ export const queryMarkdownDataBySlug = graphql`
       edges {
         node {
           html
+          tableOfContents
           frontmatter {
             title
             summary
