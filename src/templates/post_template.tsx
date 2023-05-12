@@ -9,7 +9,6 @@ import ScrollToTop from 'components/Common/ScrollToTop'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import PostPrevNextBtn from 'components/Post/PostPrevNextBtn'
 import PostToc from 'components/Post/PostToc'
-import styled from '@emotion/styled'
 
 type PostTemplateProps = {
   data: {
