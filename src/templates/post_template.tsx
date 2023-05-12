@@ -38,12 +38,6 @@ type PostTemplateProps = {
   }
 }
 
-const TocWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-`
-
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
@@ -54,7 +48,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   const {
     node: {
       html,
-      tableOfContents,
+      headings,
       frontmatter: {
         title,
         summary,
@@ -67,7 +61,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
       },
     },
   } = edges[0]
-  console.log(tableOfContents)
+
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
       <PostHead
@@ -77,10 +71,10 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         thumbnail={gatsbyImageData}
       />
       <HeaderTheme />
-      <TocWrapper>
-        <PostToc toc={tableOfContents} />
-      </TocWrapper>
-      <PostContent html={html} />
+      <div>
+        <PostToc headings={headings} />
+        <PostContent html={html} />
+      </div>
       <PostPrevNextBtn
         previousPagePath={prev ? prev.node.fields.slug : null}
         nextPagePath={next ? next.node.fields.slug : null}
@@ -100,7 +94,10 @@ export const queryMarkdownDataBySlug = graphql`
       edges {
         node {
           html
-          tableOfContents
+          headings {
+            depth
+            value
+          }
           frontmatter {
             title
             summary
