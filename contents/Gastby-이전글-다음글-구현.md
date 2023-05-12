@@ -6,7 +6,7 @@ summary: '**이전글/다음글** 기능을 구현해서 사용자가 다른 포
 thumbnail: './images/gatsby.jpg'
 ---
 ## 동기 
-요즘 `Gatsby`를 활용하여 Tech Blog를 구현하고 있습니다. 얼추 포스팅 템플릿도 구현이 된 상태에서, 다른 사람들이 만든 블로그와 그리고 이 velog에서도 어떤 요소들을 갖고 있는지 체크해본 결과, 
+요즘 `Gatsby`를 활용하여 Tech Blog를 구현하고 있습니다. 얼추 포스팅 템플릿도 구현이 된 상태에서, 다른 사람들이 만든 블로그와 특히 개발 블로그로 유명한 **velog**에서 어떤 요소들을 갖고 있는지 체크해본 결과, 
 
 - TOC (Table Of Contents) 기능 
 - 이전글/다음글 기능 
@@ -31,7 +31,7 @@ thumbnail: './images/gatsby.jpg'
 
 우선 결과부터 보여드리겠습니다. 동작 방식은 위와 같고, 만약 가장 최신 포스트이거나 아니면 가장 오래된 포스트라면 다음글/이전글 버튼이 비활성화 될 수 있도록 로직을 설계했습니다. 
 
-## `gatsby-node.js` 를 handle하기 
+## gatsby-node.js 파일 수정 
 
 마크다운 파일을 페이지로 변환해주는 `createPages` 에서 비동기적으로 query를 요청하는 부분입니다. 해당 부분에서는, `contents` 폴더 (이 부분은 `gatsby-config.js`에서 options을 설정해줬을거라고 생각하고 설명은 생략하겠습니다.) 에 담긴 마크다운 파일들을 모두 요청합니다. 
 
@@ -148,7 +148,7 @@ const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
 export default PostPrevNextBtn
 ```
 
-## `post_template`에서 slug 조작하기 
+## post_template 에서 slug 조작하기 
 post_template은 엄밀히 따지면 위에서 설계한 컴포넌트에 Props를 뿌려줘야할 부모 컴포넌트에 해당합니다. 우리는 해당 템플릿에서 `gatsby-node.js` 에서 query로 요청한 값들을 이제 받아와야 합니다. 우선 Props로 그 부분에 대한 타입을 명시합니다. 
 
 ```tsx

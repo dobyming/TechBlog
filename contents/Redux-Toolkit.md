@@ -55,7 +55,7 @@ export default function App() {
 ⚠ 이때 생성한 store는 **내장 모듈이 아니기 때문에** `{ }` 로 감싸서 모듈을 import 하는것에 주의합니다.
   
 
-### 3. `createSlice`로 Redux slice reducer 생성
+### 3. createSlice로 Redux slice reducer 생성
 `createSlice`를 활용하여 상태관리 함수 로직을 구현합니다. 
 제 프로젝트에는 add,update,delete에 관한 상태관리함수가 필요하기 때문에 `reducer`로 정의합니다. 
 
@@ -73,7 +73,7 @@ const todoSlice = createSlice({
 export default todoSlice.reducer; 
 ```
 
-### 4. `useSelector`, `useDispatch`로 데이터 읽고 state raise하기
+### 4. useSelector, useDispatch로 데이터 읽고 state raise하기
 
 `useSelector`로 `store`에서 데이터를 읽어줍니다.
 `useDispatch`로 dispatch함수를 가져오고 필요에 따라 action을 dispatch합니다. (action을 dispatch한다 = event를 trigger한다.)
@@ -83,18 +83,18 @@ export default todoSlice.reducer;
 ## 🌌 리듀서 함수 구체화하기
 `createSlice`로 Redux slice Reducer를 생성했다면 각각의 상태관리함수 (add,update,delete)에 대해서 구현을 진행하겠습니다. 
 
-### 1. `addTodo()`
+### 1. addTodo()
 ![](https://velog.velcdn.com/images/damin1025/post/cfab0e3f-ee60-49c1-983f-a88b9cbec230/image.PNG)
 
 현재 state의 할일 배열값을 받을 `todos`에 값을 push해주는 로직으로 구현할 수 있습니다. 
 
-### 2. `updateTodo()`
+### 2. updateTodo()
 ![](https://velog.velcdn.com/images/damin1025/post/8aa630c4-94c4-4ca9-a5e0-4fb4b7f5cc05/image.PNG)
 
 update(할일 종료)했다는 index를 따기 위해서 `item` 변수에 `findIndex()`로 상태가 변화한 index를 담습니다. 그리고 삼항연산자를 통해 todo -> done 으로 state를 바꿔주고, `todos` 배열에서 제거한 값을 배열에 push합니다. 
 
 
-### 3. `deleteTodo()` 
+### 3. deleteTodo()
 ![](https://velog.velcdn.com/images/damin1025/post/0bc7ec31-156b-4bff-9360-865913c271e7/image.PNG)
 
 `x` 버튼을 삭제하는 로직입니다. 전체적인 흐름은 `updateTodo()` 와 동일합니다.

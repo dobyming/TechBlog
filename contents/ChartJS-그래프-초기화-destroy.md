@@ -5,7 +5,7 @@ categories: ['ChartJS', 'TypeScript']
 summary: '초기에 그래프를 로딩하고 그리는데에는 문제가 없었지만, 다른 나라를 클릭하고 데이터를 불러올때, 기존 그래프가 초기화 되질 않아서 다음과 같이 이슈가 발생했다.'
 thumbnail: './images/ChartJS.png'
 ---
-## Issue - 'Canvas is already in use'
+## Issue - "Canvas is already in use"
 웹팩 번들링 문제를 해결하고 나니, 또 다른 이슈가 발생했었다. ~~산 넘어 산~~
 
 ![](https://velog.velcdn.com/images/damin1025/post/3ad00259-a0dc-4322-a127-1233bc165b1b/image.PNG)
@@ -62,7 +62,7 @@ function renderChart(data: number[], labels: string[]) {
 
 를 의미합니다. 따라서 다음과 같이 코드를 수정 시, 그래프가 동적으로 변하지 않는 이슈가 해결됩니다. 
 
-### +) 타입 강하게 잡아내기 : 옵셔널 체이닝(연산자 : `'?'`)
+### +) 타입 강하게 잡아내기 : 옵셔널 체이닝(연산자 : ?)
 이때 `Chart.getChart(lineChart)?.destroy();` 이게 뭔가 싶으실텐데요
 해당 연산자는 **Optional Chaining** 이라고 다음 코드와 동일한 의미를 갖습니다.  
 
