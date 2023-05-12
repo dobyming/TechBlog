@@ -3,8 +3,11 @@ import { IGatsbyImageData } from 'gatsby-plugin-image'
 export type PostPageItemType = {
   node: {
     html: string
-    tableOfContents: string
     frontmatter: PostFrontmatterType
+    headings: Array<{
+      value: string
+      depth: number
+    }>
   }
 }
 
