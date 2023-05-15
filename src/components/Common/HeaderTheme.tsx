@@ -13,7 +13,7 @@ const ThemeHeader = styled.div`
 
 const HeaderTheme = () => {
   const [isDark, setIsDark] = useState<boolean>(false)
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined') return null
   const userTheme = window.localStorage.getItem('color-theme')
 
   // Belong to isDark state, store theme in localStorage

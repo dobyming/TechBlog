@@ -44,7 +44,7 @@ const StyledPager = styled.nav`
     color: #888;
   }
 `
-export type PrevNextProps = {
+type PrevNextProps = {
   previousPagePath: string | null
   nextPagePath: string | null
 }
