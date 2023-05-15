@@ -44,7 +44,11 @@ const Introduction = () => {
         <HeaderTheme />
         <div>
           <Title>dobyming</Title>
-          <a href="https://github.com/dobyming" target={'_blank'}>
+          <a
+            href="https://github.com/dobyming"
+            aria-label="Github"
+            target={'_blank'}
+          >
             <GithubIcon />
           </a>
         </div>
