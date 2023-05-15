@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import GithubIcon from '../../assets/github.svg'
+import { Link } from 'gatsby'
 
 const Background = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Title = styled.div`
+const Title = styled(Link)`
   font-size: 35px;
   font-weight: 700;
   @media (max-width: 768px) {
@@ -42,16 +43,14 @@ const Introduction = () => {
     <Background>
       <Wrapper>
         <HeaderTheme />
-        <div>
-          <Title>dobyming</Title>
-          <a
-            href="https://github.com/dobyming"
-            aria-label="Github"
-            target={'_blank'}
-          >
-            <GithubIcon />
-          </a>
-        </div>
+        <Title to={'/'}>dobyming</Title>
+        <a
+          href="https://github.com/dobyming"
+          aria-label="Github"
+          target={'_blank'}
+        >
+          <GithubIcon />
+        </a>
       </Wrapper>
     </Background>
   )
