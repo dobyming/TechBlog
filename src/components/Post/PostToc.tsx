@@ -15,6 +15,7 @@ interface TOCProps {
     value: string
   }>
 }
+
 const isBrowser = () => typeof window !== 'undefined'
 
 const StyledTOC = styled.div`
@@ -40,7 +41,7 @@ const StyledTOC = styled.div`
       padding: 0;
 
       li {
-        border-left: 2px solid #333;
+        border-left: 2px solid #9b8df0;
         transition: opacity 0.3s ease;
         opacity: 0.5;
 
@@ -84,35 +85,37 @@ const PostToc: FunctionComponent<TOCProps> = function ({ headings }) {
     }
     const offsets: number[] = []
 
+    // bring each headings offsetTop
     for (const { slug } of headers) {
       const element = document.getElementById(slug)
       if (!element) {
         return
       }
-      offsets.push(element.offsetTop - 300)
+      offsets.push(element.offsetTop - 10)
     }
-    const maxIndex = offsets.length - 1
 
-    const { scrollY } = window // 900
+    const maxIndex = offsets.length - 1
+    const { scrollY } = window
     let index = 0
+
+    // Scroll Active Trigger (looping the offset)
     if (scrollY === 0 || scrollY <= offsets[0]) {
       index = 0
     } else if (
-      window.innerHeight + scrollY >= document.body.offsetHeight - 30 ||
-      scrollY >= (offsets.at(-1) ?? 0)
+      window.innerHeight + scrollY >= document.body.scrollHeight ||
+      scrollY >= offsets[maxIndex]
     ) {
       index = maxIndex
     } else {
-      index = findIndex(offsets, offset => offset > scrollY) - 1
+      index = findIndex(offsets, offset => offset >= scrollY) - 1
     }
     return index
-  }, [])
+  }, [headers])
 
-  const [currentIndex, setCurrentIndex] = useState<undefined | null | number>(0)
+  const [currentIndex, setCurrentIndex] = useState<number | undefined>(0)
 
   useEffect(() => {
     setCurrentIndex(calcActive())
-
     const onScrollForActive = throttle(() => setCurrentIndex(calcActive()), 300)
     window.addEventListener('scroll', onScrollForActive)
 
@@ -120,7 +123,7 @@ const PostToc: FunctionComponent<TOCProps> = function ({ headings }) {
       onScrollForActive.cancel()
       window.removeEventListener('scroll', onScrollForActive)
     }
-  }, [calcActive])
+  }, [])
 
   return (
     <StyledTOC>
