@@ -8,6 +8,7 @@ import CommentWidget from 'components/Post/CommentWidget'
 import ScrollToTop from 'components/Common/ScrollToTop'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import PostPrevNextBtn from 'components/Post/PostPrevNextBtn'
+import PostToc from 'components/Post/PostToc'
 
 type PostTemplateProps = {
   data: {
@@ -46,6 +47,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   const {
     node: {
       html,
+      headings,
       frontmatter: {
         title,
         summary,
@@ -68,7 +70,10 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         thumbnail={gatsbyImageData}
       />
       <HeaderTheme />
-      <PostContent html={html} />
+      <div>
+        <PostToc headings={headings} />
+        <PostContent html={html} />
+      </div>
       <PostPrevNextBtn
         previousPagePath={prev ? prev.node.fields.slug : null}
         nextPagePath={next ? next.node.fields.slug : null}
@@ -88,6 +93,10 @@ export const queryMarkdownDataBySlug = graphql`
       edges {
         node {
           html
+          headings {
+            depth
+            value
+          }
           frontmatter {
             title
             summary

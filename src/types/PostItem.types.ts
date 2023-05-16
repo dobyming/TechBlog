@@ -4,6 +4,10 @@ export type PostPageItemType = {
   node: {
     html: string
     frontmatter: PostFrontmatterType
+    headings: Array<{
+      value: string
+      depth: number
+    }>
   }
 }
 

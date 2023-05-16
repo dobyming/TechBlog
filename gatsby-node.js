@@ -55,6 +55,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               fields {
                 slug
               }
+              headings {
+                depth
+                value
+              }
             }
           }
         }
