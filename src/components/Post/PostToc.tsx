@@ -113,7 +113,7 @@ const PostToc: FunctionComponent<TOCProps> = function ({ headings }) {
   }, [headers])
 
   const [currentIndex, setCurrentIndex] = useState<number | undefined>(0)
-
+  console.log(currentIndex)
   useEffect(() => {
     setCurrentIndex(calcActive())
     const onScrollForActive = throttle(() => setCurrentIndex(calcActive()), 300)
@@ -123,7 +123,7 @@ const PostToc: FunctionComponent<TOCProps> = function ({ headings }) {
       onScrollForActive.cancel()
       window.removeEventListener('scroll', onScrollForActive)
     }
-  }, [])
+  }, [calcActive])
 
   return (
     <StyledTOC>
