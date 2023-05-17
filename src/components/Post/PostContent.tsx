@@ -15,8 +15,8 @@ const MarkdownRenderer = styled.div`
   word-break: break-all;
 
   // Markdown Style
-  line-height: 1.8;
-  font-size: 16px;
+  line-height: 2;
+  font-size: 15px;
   font-weight: 400;
 
   // Apply Padding Attribute to All Elements
@@ -60,9 +60,9 @@ const MarkdownRenderer = styled.div`
   // Adjust Quotation Element Style
   blockquote {
     margin: 30px 0;
-    padding: 5px 15px;
-    border-left: 2px solid #000000;
-    font-weight: 800;
+    padding: 0 1em;
+    color: #000000;
+    border-left: 0.25em solid #dfe2e5;
   }
 
   // Adjust List Element Style
@@ -79,8 +79,8 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Horizontal Rule style
   hr {
-    border: 1px solid #000000;
-    margin: 100px 0;
+    border: 0.5px solid #dfe2e5;
+    margin: 32px 0;
   }
 
   // Adjust Link Element Style
@@ -88,7 +88,7 @@ const MarkdownRenderer = styled.div`
     color: #00a170;
     text-decoration: none;
   }
-  ,
+
   a:hover {
     color: #f6546a;
     text-decoration: underline;
@@ -96,9 +96,10 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 30px 0;
-    padding: 15px;
-    font-size: 15px;
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+    background: #1e1e1e;
 
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
@@ -109,6 +110,15 @@ const MarkdownRenderer = styled.div`
   code[class*='language-'],
   pre[class*='language-'] {
     tab-size: 2;
+  }
+
+  code[class='language-text'] {
+    padding: 0.1em 0.3em;
+    border-radius: 0.3em;
+    white-space: normal;
+    text-shadow: none;
+    background: #b3d4fc;
+    color: #000000;
   }
 
   // Markdown Responsive Design

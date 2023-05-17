@@ -9,7 +9,7 @@ thumbnail: './images/cors.png'
 
 아래와 같이 사이트들이 있다고 가정해보겠습니다. 
 
-```
+```bash
 http://localhost:8000
 https://api.alazierplace.com:3000/api/
 https://alazierplace.com/2019/05/data-driven-testing-how-we-went-from-150-test-cases-to-1/
