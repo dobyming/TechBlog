@@ -3,7 +3,7 @@ date: '2023-05-01'
 title: 'CORS에 대해서 알아보자'
 categories: ['CORS','Web']
 summary: 'CORS의 개념에 대해서 익히고 왜 이 개념이 모던 웹에서 중요한지 다뤄봅니다.'
-thumbnail: './images/cors.png'
+thumbnail: '../images/cors.png'
 ---
 ### Origin 이란?
 

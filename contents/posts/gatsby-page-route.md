@@ -3,7 +3,7 @@ date: '2023-04-17'
 title: 'Gatsby에서 페이지 라우팅 하는법'
 categories: ['Web', 'Gatsby']
 summary: 'Gatsby에서는 어떤 방식으로 라우팅을 진행할까?'
-thumbnail: './images/gatsby.jpg'
+thumbnail: '../images/gatsby.jpg'
 ---
 
 ## Gatsby에서 페이지 라우팅하기 

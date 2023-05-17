@@ -3,7 +3,7 @@ date: '2023-05-16'
 title: 'Gatsby 블로그 - TOC 기능 구현하기'
 categories: ['Web', 'Gatsby']
 summary: '포스팅을 읽다보면, 다시 읽고 싶은 부분으로 돌아가고 싶었던 경험이 있을겁니다. 이때 일일이 스크롤해서 내가 원하는 컨텐츠를 읽는것은 사용자 경험이 굉장히 떨어지는 행위입니다.'
-thumbnail: './images/gatsby.jpg'
+thumbnail: '../images/gatsby.jpg'
 ---
 
 🤠 글이 꽤 깁니다! 

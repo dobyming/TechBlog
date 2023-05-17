@@ -3,7 +3,7 @@ date: '2023-03-17'
 title: 'Redux Toolkit - useDispatch로 state rasie하기'
 categories: ['Redux']
 summary: '이전 포스팅에서 Redux toolkit으로 store를 셋팅을 했다면, 실제로 이제 각 컴포넌트에서 수행할 리듀서 함수를 import하여 사용하는 방법에 대해서 알아보도록 하겠습니다.'
-thumbnail: './images/redux.png'
+thumbnail: '../images/redux.png'
 ---
 ## state를 useDispatch로 보내기 
 
