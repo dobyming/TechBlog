@@ -72,7 +72,7 @@ const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
           {nextPagePath !== null ? (
             <Link to={nextPagePath}>
               이전글
-              <Right className="RightPrev" />
+              <Right className="RightNext" />
             </Link>
           ) : (
             <span>
