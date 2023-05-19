@@ -10,7 +10,6 @@ const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;
   cursor: pointer;
 
@@ -93,7 +92,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
   link,
 }) {
   return (
-    <PostItemWrapper to={link}>
+    <PostItemWrapper className="postItemWrapper" to={link}>
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
 
       <PostItemContent>
@@ -101,7 +100,9 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
         <Date>{date}</Date>
         <Category>
           {categories.map(category => (
-            <CategoryItem key={category}>{category}</CategoryItem>
+            <CategoryItem className="categoryItems" key={category}>
+              {category}
+            </CategoryItem>
           ))}
         </Category>
         <Summary>{summary}</Summary>
