@@ -5,8 +5,6 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby-link'
 import { isBrowser } from '../../util'
 
-// const isBrowser = () => typeof window !== 'undefined'
-
 const StyledPager = styled.nav`
   height: 56px;
   margin-bottom: 30px;
