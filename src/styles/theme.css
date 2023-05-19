@@ -1,13 +1,19 @@
-body {
+.light {
     --color-background:#f6f6f6;
+    --color-category-bg: black;
+    --color-category-font: white;
+    --color-postLink-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 }
 
 .dark {
-    --color-background: #393E46;
+    --color-background: #25262c;
     --color-text: #f6f6f6;
+    --color-category-bg: #E8E8E8;
+    --color-category-font: #000000;
+    --color-postLink-shadow: 0 0 5px rgba(0, 0, 0, 2.15);
 }
 
-body{
+body {
     background-color: var(--color-background);
     transition: 0.2s;
 }
@@ -26,4 +32,25 @@ tr,
 footer,
 span {
   color: var(--color-text);
+}
+
+.LeftPrev path {
+    fill: var(--color-text)
+}
+
+.RightNext path {
+    fill: var(--color-text)
+}
+
+.ScrollToTop path {
+    fill: var(--color-text)
+}
+
+div .categoryItems {
+    background: var(--color-category-bg);
+    color: var(--color-category-font);
+}
+
+div .postItemWrapper {
+    box-shadow: var(--color-postLink-shadow);
 }

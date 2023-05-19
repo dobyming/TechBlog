@@ -58,11 +58,12 @@ const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
         <li>
           {previousPagePath !== null ? (
             <Link to={previousPagePath}>
-              <Left /> 다음글
+              <Left className="LeftPrev" />
+              다음글
             </Link>
           ) : (
             <span>
-              <Left /> 다음글
+              <Left fill="gray" /> 다음글
             </span>
           )}
         </li>
@@ -70,11 +71,12 @@ const PostPrevNextBtn: FunctionComponent<PrevNextProps> = function ({
         <li>
           {nextPagePath !== null ? (
             <Link to={nextPagePath}>
-              이전글 <Right />
+              이전글
+              <Right className="RightNext" />
             </Link>
           ) : (
             <span>
-              이전글 <Right />
+              이전글 <Right fill="gray" />
             </span>
           )}
         </li>

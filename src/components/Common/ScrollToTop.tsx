@@ -56,6 +56,7 @@ const ScrollToTop = () => {
           exit="initial"
         >
           <FontAwesomeIcon
+            className="ScrollToTop"
             icon={faArrowAltCircleUp}
             height="40px"
             width="40px"

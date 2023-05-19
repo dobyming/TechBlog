@@ -28,10 +28,12 @@ const HeaderTheme = () => {
   // trigger theme change refer localStorage's key-value
   useEffect(() => {
     if (userTheme === 'dark') {
+      document.body.classList.remove('light')
       document.body.classList.add('dark')
       setIsDark(true)
     } else {
       document.body.classList.remove('dark')
+      document.body.classList.add('light')
       setIsDark(false)
     }
   }, [userTheme])
