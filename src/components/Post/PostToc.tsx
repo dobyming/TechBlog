@@ -8,15 +8,13 @@ import React, {
 import { slug } from 'github-slugger'
 import styled from '@emotion/styled'
 import { findIndex, throttle } from 'lodash-es'
-
+import { isBrowser } from '../../util'
 interface TOCProps {
   headings: Array<{
     depth: number
     value: string
   }>
 }
-
-const isBrowser = () => typeof window !== 'undefined'
 
 const StyledTOC = styled.div`
   width: 100%;

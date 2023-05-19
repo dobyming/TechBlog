@@ -3,8 +3,7 @@ import Left from '../../assets/left-icon.svg'
 import Right from '../../assets/right-icon.svg'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby-link'
-
-const isBrowser = () => typeof window !== 'undefined'
+import { isBrowser } from '../../util'
 
 const StyledPager = styled.nav`
   height: 56px;
