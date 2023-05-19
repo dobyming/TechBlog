@@ -3,7 +3,7 @@ body {
 }
 
 .dark {
-    --color-background: #393E46;
+    --color-background: #21242c;
     --color-text: #f6f6f6;
 }
 
@@ -26,4 +26,16 @@ tr,
 footer,
 span {
   color: var(--color-text);
+}
+
+.LeftPrev path {
+    fill: var(--color-text)
+}
+
+.RightPrev path {
+    fill: var(--color-text)
+}
+
+.ScrollToTop path {
+    fill: var(--color-text)
 }
