@@ -19,7 +19,6 @@ const Background = styled.div`
   }
 
   &.scroll {
-    box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.2);
     height: 90px;
     hr {
       display: none;
