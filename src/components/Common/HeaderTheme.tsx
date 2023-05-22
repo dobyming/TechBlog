@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useLayoutEffect, useCallback } from 'react'
 import Sun from '../../assets/sun.svg'
 import Moon from '../../assets/moon.svg'
 import '../../styles/theme.css'
@@ -26,7 +26,7 @@ const HeaderTheme = () => {
   }
 
   // trigger theme change refer localStorage's key-value
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (userTheme === 'dark') {
       document.body.classList.remove('light')
       document.body.classList.add('dark')
