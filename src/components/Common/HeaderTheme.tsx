@@ -49,9 +49,9 @@ const HeaderTheme = () => {
   return (
     <ThemeHeader onClick={handleTheme}>
       {isDark ? (
-        <Sun stroke="orange" fill="orange" />
+        <Sun stroke="#FF5733" fill="#FF5733" />
       ) : (
-        <Moon fill="yellow" stroke="yellow" />
+        <Moon fill="#FFD700" stroke="#FFD700" />
       )}
     </ThemeHeader>
   )
