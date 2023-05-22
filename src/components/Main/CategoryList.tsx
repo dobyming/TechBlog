@@ -15,19 +15,17 @@ const CategoryListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 768px;
-  margin: 30px auto 0;
+  margin: 120px auto 0;
 
   @media (max-width: 768px) {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 90px;
     padding: 0 20px;
   }
 `
 
 const Tags = styled.h2`
-  display: flex;
-  flex-wrap: wrap;
-  width: 768px;
+  width: 100%;
 
   @media (max-width: 768px) {
     width: 100%;

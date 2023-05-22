@@ -42,6 +42,10 @@ span {
     fill: var(--color-text)
 }
 
+.githubIcon path {
+    fill: var(--color-text);
+}
+
 .ScrollToTop path {
     fill: var(--color-text)
 }
@@ -53,4 +57,8 @@ div .categoryItems {
 
 div .postItemWrapper {
     box-shadow: var(--color-postLink-shadow);
+}
+
+div .scroll {
+    background-color: var(--color-background);
 }

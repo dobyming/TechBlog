@@ -1,19 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import GithubIcon from '../../assets/github.svg'
 import { Link } from 'gatsby'
+import { isBrowser } from '../../util'
 
 const Background = styled.div`
+  position: fixed;
   width: 100%;
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
-  color: #f6f6f6;
+  top: 0;
+  left: 0;
+  z-index: 3;
+
+  hr {
+    width: 768px;
+    margin: auto;
+    border-color: #fff;
+  }
+
+  &.scroll {
+    box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.2);
+    height: 90px;
+    hr {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 80px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    hr {
+      display: none;
+    }
+  }
 `
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,7 +48,7 @@ const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 95px;
+    height: 80px;
     padding: 0 20px;
   }
 `
@@ -34,13 +57,27 @@ const Title = styled(Link)`
   font-size: 35px;
   font-weight: 700;
   @media (max-width: 768px) {
-    font-size: 25px;
+    padding-top: 5px;
+    font-size: 28px;
   }
 `
 
 const Introduction = () => {
+  const [scrolled, setScrolled] = useState<boolean>(false)
+  // when to trigger event
+  const onScroll = () => setScrolled(window.scrollY > 20)
+
+  useEffect(() => {
+    if (!isBrowser) {
+      return
+    }
+    window.addEventListener('scroll', onScroll)
+    setScrolled(window.scrollY > 20)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <Background>
+    <Background className={scrolled ? 'scroll' : ''}>
       <Wrapper>
         <HeaderTheme />
         <Title to={'/'}>dobyming</Title>
@@ -49,9 +86,10 @@ const Introduction = () => {
           aria-label="Github"
           target={'_blank'}
         >
-          <GithubIcon />
+          <GithubIcon className="githubIcon" />
         </a>
       </Wrapper>
+      <hr />
     </Background>
   )
 }
