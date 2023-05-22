@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "outDir": "./built",
     "allowJs": true,
     "jsx": "preserve",
     "strict": true,
@@ -19,6 +20,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
   },
-  "include": ["src/**/*.tsx","src/**/*.ts","src/custom.d.ts","src/types/PostItem.types.ts"],
+  "include": ["src/**/*.tsx","src/**/*.js","src/**/*.ts","src/custom.d.ts","src/types/PostItem.types.ts"],
   "exclude": ["node_modules"]
 }
