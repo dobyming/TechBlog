@@ -21,9 +21,6 @@ export default class HTML extends React.Component {
               (function () {
                 try {
                   var mode = localStorage.getItem('color-theme');
-                  var supportDarkMode =
-                    window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-                  if (!mode && supportDarkMode) document.body.classList.add('dark');
                   if (!mode) return;
                   document.body.classList.add(mode);
                 } catch (e) {}
