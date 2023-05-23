@@ -1,5 +1,6 @@
 import React, { createRef, FunctionComponent, useEffect } from 'react'
 import styled from '@emotion/styled'
+import { isBrowser } from '../../util'
 
 const src = 'https://utteranc.es/client.js'
 const repo = 'dobyming/dobyming.github.io' // 자신 계정의 레포지토리로 설정
@@ -22,6 +23,10 @@ const UtterancesWrapper = styled.div`
 
 const CommentWidget: FunctionComponent = function () {
   const element = createRef<HTMLDivElement>()
+  if (!isBrowser) return null
+  const theme = document.body.classList.contains('dark')
+    ? 'photon-dark'
+    : 'github-light'
 
   useEffect(() => {
     if (element.current === null) return
@@ -33,7 +38,7 @@ const CommentWidget: FunctionComponent = function () {
       repo,
       'issue-term': 'pathname',
       label: 'Comment',
-      theme: `github-light`,
+      theme: theme,
       crossorigin: 'anonymous',
       async: 'true',
     }
@@ -44,6 +49,29 @@ const CommentWidget: FunctionComponent = function () {
 
     element.current.appendChild(utterances)
   }, [])
+
+  useEffect(() => {
+    const mutationObserver: MutationObserver = new MutationObserver(
+      mutationsList => {
+        mutationsList.forEach(mutation => {
+          if (mutation.attributeName === 'class') {
+            if (document.querySelector('.utterances-frame')) {
+              const theme = mutation.target.classList.contains('dark')
+                ? 'photon-dark'
+                : 'github-light'
+              const message = {
+                type: 'set-theme',
+                theme: theme,
+              }
+              const iframe = document.querySelector('.utterances-frame')
+              iframe.contentWindow.postMessage(message, 'https://utteranc.es')
+            }
+          }
+        })
+      },
+    )
+    mutationObserver.observe(document.body, { attributes: true })
+  }, [theme])
 
   return <UtterancesWrapper ref={element} />
 }
