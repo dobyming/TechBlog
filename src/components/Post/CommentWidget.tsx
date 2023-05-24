@@ -72,7 +72,7 @@ const CommentWidget: FunctionComponent = function () {
         },
       )
       mutationObserver.observe(document.body, { attributes: true })
-    }, [theme])
+    }, [])
   }
 
   return <UtterancesWrapper ref={element} />
