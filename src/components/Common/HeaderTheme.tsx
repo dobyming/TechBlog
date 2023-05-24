@@ -3,6 +3,8 @@ import Sun from '../../assets/sun.svg'
 import Moon from '../../assets/moon.svg'
 import '../../styles/theme.css'
 import styled from '@emotion/styled'
+import { isBrowser } from '../../util'
+import ClientOnly from './ClientOnly'
 
 const ThemeHeader = styled.div`
   position: absolute;
@@ -13,7 +15,7 @@ const ThemeHeader = styled.div`
 
 const HeaderTheme = () => {
   const [isDark, setIsDark] = useState<boolean>(false)
-  if (typeof window === 'undefined') return null
+  if (!isBrowser()) return null
   const userTheme = window.localStorage.getItem('color-theme')
 
   // Belong to isDark state, store theme in localStorage
@@ -47,13 +49,15 @@ const HeaderTheme = () => {
   }, [])
 
   return (
-    <ThemeHeader onClick={handleTheme}>
-      {isDark ? (
-        <Sun stroke="#FF5733" fill="#FF5733" />
-      ) : (
-        <Moon fill="#FFD700" stroke="#FFD700" />
-      )}
-    </ThemeHeader>
+    <ClientOnly>
+      <ThemeHeader onClick={handleTheme}>
+        {isDark ? (
+          <Sun stroke="#FF5733" fill="#FF5733" />
+        ) : (
+          <Moon fill="#FFD700" stroke="#FFD700" />
+        )}
+      </ThemeHeader>
+    </ClientOnly>
   )
 }
 
