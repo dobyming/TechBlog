@@ -15,7 +15,7 @@ const MarkdownRenderer = styled.div`
   word-break: break-all;
 
   // Markdown Style
-  line-height: 2;
+  line-height: 1.8;
   font-size: 15px;
   font-weight: 400;
 
@@ -46,15 +46,15 @@ const MarkdownRenderer = styled.div`
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   // Adjust Quotation Element Style
@@ -96,6 +96,7 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
+    font-family: 'Fira Code'
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
@@ -109,7 +110,8 @@ const MarkdownRenderer = styled.div`
 
   code[class*='language-'],
   pre[class*='language-'] {
-    tab-size: 2;
+    font-size: 14px;
+    tab-size: 4;
   }
 
   code[class='language-text'] {
@@ -119,6 +121,43 @@ const MarkdownRenderer = styled.div`
     text-shadow: none;
     background: #b3d4fc;
     color: #000000;
+  }
+  
+  // Tokens
+  .token {
+    font-family: 'Fira Code'
+  } 
+
+  .token.comment {
+    color: #6a9955;
+  }
+  
+  .token.keyword,
+  .token.builtin {
+    color: #c586c0;
+  }
+
+  .token.punctuation {
+    color: #d4d4d4;
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string {
+    color: #d4d4d4;
+    background: #1e1e1e;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    color: #b5cea8;
   }
 
   // Markdown Responsive Design

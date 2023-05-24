@@ -2,12 +2,12 @@ import React, { FunctionComponent } from 'react'
 import { Global, css } from '@emotion/react'
 
 const defaultStyle = css`
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=IBM+Plex+Sans+KR&display=swap');
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif, 'Fira Code', monospace;
   }
 
   html,
