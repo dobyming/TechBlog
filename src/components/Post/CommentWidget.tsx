@@ -65,7 +65,7 @@ const CommentWidget: FunctionComponent = function () {
                 }
                 const iframe =
                   window.document.querySelector('.utterances-frame')
-                iframe.contentWindow.postMessage(message, 'https://utteranc.es')
+                iframe.contentWindow.postMessage(message, src)
               }
             }
           })
