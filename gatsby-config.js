@@ -43,6 +43,7 @@ module.exports = {
         icon: "src/assets/favicon-32x32.png",
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

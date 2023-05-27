@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode, FunctionComponent } from 'react'
+import React, { useState, useEffect, ReactNode, FunctionComponent } from 'react'
 
 type ClientProps = {
   children: ReactNode
@@ -15,7 +15,7 @@ const ClientOnly: FunctionComponent<ClientProps> = function ({ children }) {
     return null
   }
 
-  return children
+  return <>{children}</>
 }
 
 export default ClientOnly
