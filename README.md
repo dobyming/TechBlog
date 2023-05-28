@@ -4,7 +4,7 @@ Gatsby 프레임워크로 구현된 저만의 개발 블로그이며, 정적 웹
 ## 🍀 Tech Stack 
 - FE : `GatsbyJS`, `emotionJS` , `npm`
     
-    개인 개발 블로그라는 목적에 맞게 server와의 렌더링이 요구되지 않기 때문에 대표적인 정적 웹 프레임워크인 `GatsbyJS` 프레임워크를 선택하여 구현에 활용할 것입니다. 대표적인 JAM Stack 기반 framework로, Pre-render를 통해 렌더링 속도가 빠르며 사용자는 좋은 UX를 제공받을 수 있을것입니다. 
+    개인 개발 블로그라는 목적에 맞게 대표적인 정적 웹 프레임워크(SSG)인 `GatsbyJS` 프레임워크로 구현에 활용할 것입니다. 대표적인 JAM Stack 기반 framework로, Pre-render되는 속성으로 인해 렌더링 속도가 빠르며 사용자는 좋은 UX를 제공받을 수 있을것입니다. 
     
     또한 CSS같은 경우는 CSS-in-JS 라이브러리인 `emotionJS`를 선택했습니다. `styled-componenent`와 syntax상 큰 차이점은 없지만 build 시 번들 용량이 `emotionJS`가 압도적으로 작기 때문에 해당 라이브러리를 선택했습니다.
     
