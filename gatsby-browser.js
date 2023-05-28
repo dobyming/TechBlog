@@ -1,8 +1,6 @@
 import 'prismjs/themes/prism-tomorrow.css';
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
- */
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
 
-// You can delete this file if you're not using it
+// Fix Icon Flash (FOUC)
+config.autoAddCss = false;
