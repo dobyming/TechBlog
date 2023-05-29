@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import GithubIcon from '../../assets/github.svg'
+import RSS from '../../assets/rss.svg'
 import { Link } from 'gatsby'
 import { isBrowser } from '../../util'
 
@@ -61,6 +62,15 @@ const Title = styled(Link)`
   }
 `
 
+const SvgNav = styled.div`
+  display: flex;
+  justify-content: center;
+
+  .rssFeed {
+    margin: 5px;
+  }
+`
+
 const Introduction = () => {
   const [scrolled, setScrolled] = useState<boolean>(false)
   // when to trigger event
@@ -80,13 +90,18 @@ const Introduction = () => {
       <Wrapper>
         <HeaderTheme />
         <Title to={'/'}>dobyming</Title>
-        <a
-          href="https://github.com/dobyming"
-          aria-label="Github"
-          target={'_blank'}
-        >
-          <GithubIcon className="githubIcon" />
-        </a>
+        <SvgNav>
+          <a
+            href="https://github.com/dobyming"
+            aria-label="GitHub"
+            target={'_blank'}
+          >
+            <GithubIcon className="githubIcon" />
+          </a>
+          <Link to="/rss.xml" className="rssFeed" aria-label="RSS">
+            <RSS />
+          </Link>
+        </SvgNav>
       </Wrapper>
       <hr />
     </Background>

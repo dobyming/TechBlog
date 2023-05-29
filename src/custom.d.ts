@@ -1,3 +1,4 @@
 declare module '*.svg' {
-  export const ReactComponent: React.JSXElement
+  const content: any
+  export default content
 }

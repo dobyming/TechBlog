@@ -36,6 +36,62 @@ module.exports = {
     },
     `gatsby-plugin-emotion`,
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+            {
+              site {
+                siteMetadata {
+                  author
+                  description
+                  siteUrl
+                  site_url: siteUrl
+                }
+              }
+            }
+          `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [
+                    {
+                      'content:encoded': node.html,
+                    },
+                  ],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+                ) {
+                  nodes {
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                    html
+                  }
+                }
+              }
+              `,
+            output: '/rss.xml',
+            title: `Damin-Kim blog's RSS Feed`,
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,

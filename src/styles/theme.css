@@ -1,5 +1,6 @@
 .light {
     --color-background:#f6f6f6;
+    --color-text: #000000;
     --color-category-bg: black;
     --color-category-font: white;
     --color-Introduction-shadow: 1px 2px 18px rgba(0, 0, 0, 0.2);
@@ -36,6 +37,8 @@ span {
   color: var(--color-text);
 }
 
+/* SVG Icons Themeing */
+
 .LeftPrev path {
     fill: var(--color-text)
 }
@@ -52,6 +55,11 @@ span {
     fill: var(--color-text)
 }
 
+.rssFeed path {
+    fill: var(--color-text)
+}
+
+/* div Tags Dark Mode Themeing */
 div .categoryItems {
     background: var(--color-category-bg);
     color: var(--color-category-font);
