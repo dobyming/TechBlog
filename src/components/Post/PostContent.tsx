@@ -36,7 +36,7 @@ const MarkdownRenderer = styled.div`
   * + h2,
   * + h3,
   * + h4 {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   hr + h1,
@@ -112,6 +112,9 @@ const MarkdownRenderer = styled.div`
   pre[class*='language-'] {
     font-size: 14px;
     tab-size: 4;
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 
   code[class='language-text'] {
@@ -121,6 +124,9 @@ const MarkdownRenderer = styled.div`
     text-shadow: none;
     background: #b3d4fc;
     color: #000000;
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
   
   // Tokens
