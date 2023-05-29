@@ -1,8 +1,8 @@
 # 📝 Tech Blog 
-Gatsby 프레임워크로 구현된 저만의 개발 블로그이며, 정적 웹사이트입니다. 반응형 웹사이트도 고려하여 제작 및 구현했기에 모바일 웹 환경에서도 유연하게 볼 수 있습니다 :)  
+Gatsby 프레임워크로 구현된 저만의 개발 블로그입니다. 반응형 웹사이트로 모바일 웹 환경에서도 유연하게 볼 수 있습니다! 
 
 ## 🍀 Tech Stack 
-- FE : `GatsbyJS`, `emotionJS` , `npm`
+- FE : `GatsbyJS`, `emotionJS` , `NPM`
     
     개인 개발 블로그라는 목적에 맞게 대표적인 정적 웹 프레임워크(SSG)인 `GatsbyJS` 프레임워크로 구현에 활용할 것입니다. 대표적인 JAM Stack 기반 framework로, Pre-render되는 속성으로 인해 렌더링 속도가 빠르며 사용자는 좋은 UX를 제공받을 수 있을것입니다. 
     
@@ -17,7 +17,7 @@ Gatsby 프레임워크로 구현된 저만의 개발 블로그이며, 정적 웹
     개발 포스팅에 댓글을 달 수 있는 기능을 Github에서 제공하는 오픈 소스인 `Utterances` 를 활용하여 Github 레포지토리에 link하여 Issue(댓글)들을 빠르게 열람하고 의견 공유를 할 수 있습니다.
     
 ## 🚀 Quick start
-`npm`을 활용하여 `Gatsby` 프로젝트를 시작하기 위해서는 Node.js의 version은 **`18.0.0`** 이상 요구됩니다.
+`Gatsby` v5 프로젝트를 시작하기 위해서는 React와 Node.js의 version은 **`18.0.0`** 이상 요구됩니다.
 
 1.  **Create a Gatsby site.**
 
