@@ -99,7 +99,7 @@ const Introduction = () => {
             <GithubIcon className="githubIcon" />
           </a>
           <Link to="/rss.xml" className="rssFeed" aria-label="RSS">
-            <RSS />
+            <RSS fill="black" />
           </Link>
         </SvgNav>
       </Wrapper>
