@@ -58,7 +58,7 @@ export default ClientOnly
 
 이건 실제로 제가 해결한 [PR](https://github.com/dobyming/dobyming.github.io/pull/16#issue-1723164020) 이에요.
 
-## Dark Mode State Flicking 
+## SVG Icon Flicker Issue 
 
 ![](https://velog.velcdn.com/images/damin1025/post/c555ab5e-d15c-482f-925e-ead9b3db00ab/image.gif)
 
