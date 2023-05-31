@@ -5,6 +5,7 @@ import GithubIcon from '../../assets/github.svg'
 import RSS from '../../assets/rss.svg'
 import { Link } from 'gatsby'
 import { isBrowser } from '../../util'
+import SearchIcon from '../../assets/search.svg'
 
 const Background = styled.div`
   position: fixed;
@@ -45,6 +46,13 @@ const Wrapper = styled.div`
   width: 768px;
   height: 100px;
   margin: 0 auto;
+
+  .searchIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 5rem;
+    cursor: pointer;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
@@ -89,6 +97,9 @@ const Introduction = () => {
     <Background className={scrolled ? 'scroll' : ''}>
       <Wrapper>
         <HeaderTheme />
+        <Link to="/Search">
+          <SearchIcon fill="black" className="searchIcon" />
+        </Link>
         <Title to={'/'}>dobyming</Title>
         <SvgNav>
           <a
