@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import CloseIcon from '../assets/close.svg'
-import { Link } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
+// import { useGatsbyPluginFusejs } from 'react-use-fusejs'
 
 const StyledSearch = styled.div`
   position: fixed;
@@ -44,7 +45,25 @@ const StyledSearch = styled.div`
     cursor: pointer;
   }
 `
+
+// interface SearchStaticQuery {
+//   fusejs: { index: string; data: string }
+// }
+
+// interface SearchItem {
+//   id: string
+//   path: string
+//   title: string
+//   body: string
+// }
+
 const Search = () => {
+  // const data = useStaticQuery<SearchStaticQuery>(getSearchResult)
+
+  // const [query, setQuery] = useState('')
+  // const { fusejs, setFusejs } = useState(null)
+  // const result = useGatsbyPluginFusejs<SearchItem>(query, fusejs)
+
   return (
     <StyledSearch>
       <div className="content">
@@ -71,3 +90,12 @@ const Search = () => {
 }
 
 export default Search
+
+// export const getSearchResult = graphql`
+//   query getSearch {
+//     fusejs {
+//       index
+//       data
+//     }
+//   }
+// `
