@@ -117,6 +117,29 @@ useLayoutEffect 는 컴포넌트들이 **render 된 후 실행되며**, 그 이�
 
 이때 주의할 점은 `useLayoutEffect`는 paint되기 전에 실행되기 때문에 **React Hydration Issue** 를 만날 수 있는데 (클라이언트화면 !== 서버화면) 이는 상단에 제가 언급한 Minified error와 맞물리기 때문에 해당 validation을 최상단 컴포넌트에서 감아주면 문제를 해결할 수 있어요. 
 
+### gatsby-plugin-offline 활용하기
+그리고 추가적으로 `gatsby-plugin-offline` 설치를 하게 되면 깜빡임 현상을 더욱 최소화 할 수 있어요. `gatsby-plugin-offline`은 **Service Worker**를 활용해서 작동합니다. 그럼 서비스워커는 무엇일까요?
+> 서비스 워커는 웹 응용 프로그램, 브라우저, 그리고 (사용 가능한 경우) 네트워크 사이의 프록시 서버 역할을 합니다. 서비스 워커의 개발 의도는 여러가지가 있지만, 그 중에서도 효과적인 오프라인 경험을 생성하고, 네트워크 요청을 가로채서 네트워크 사용 가능 여부에 따라 적절한 행동을 취하고, 서버의 자산을 업데이트할 수 있습니다. 또한 푸시 알림과 백그라운드 동기화 API로의 접근도 제공합니다. (출처: [MDN](https://developer.mozilla.org/ko/docs/Web/API/Service_Worker_API))
+
+![gatsby-service-worker](https://github.com/dobyming/dobyming.github.io/assets/90133704/9ab3f2eb-f665-4c5c-aeec-9f83ee2264da)
+
+페이지를 최초 요청할때 static한 asset들(SVG Icon)을 내려 받고, CacheStorage에 저장을 합니다. 따라서 유저가 향후 웹사이트를 재방문할때 유저의 Cache Storage에 저장된 assets들을 참고하여, 빠르게 불러올 수 있습니다. 그렇기 때문에 깜빡임 현상을 최소화 할 수 있습니다. 
+
+이때 config options를 통해서 어느 페이지 또는 어떤 폴더에 대해서만 Cache에 담을 지 부여할 수 있어요. 이 Option이 필요한 이유는 역시 사용자 경험과 밀접한 연관을 맺고 있어요. 만약 최초로 방문하는 유저일 경우에는 모든 리소스들을 Cache에 담는 작업이 수행된다면, 사용자별로 Cache 사이즈도 상이하고 그리고 Band-width도 상이하기 때문에 어떤 환경에서는 빠를지 몰라도, 또 다른 유저는 느리게 느껴질 수도 있어요. 
+
+따라서 아래와 같이 내가 어떤 상황에서만 cache작업을 하겠다는 것을 부여할 수 있습니다. 
+```js
+{
+    resolve: `gatsby-plugin-offline`,
+    options: {
+        precachePages: [`/blog/*`],
+    },
+}
+```
+
+### 결과물
+위 과정들을 거치고 나면..!
+
 ![](https://velog.velcdn.com/images/damin1025/post/c03d5350-d60b-44e2-a565-04f092e6f3b2/image.gif)
 
 더이상은 해로 잠깐 보였다가 사라지는 현상은 볼 수 없게 되요😙
