@@ -1,8 +1,15 @@
-import React, { useState, FunctionComponent } from 'react'
+import React, {
+  useState,
+  FunctionComponent,
+  useRef,
+  useEffect,
+  useContext,
+} from 'react'
 import styled from '@emotion/styled'
 import CloseIcon from '../assets/close.svg'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { useGatsbyPluginFusejs } from 'react-use-fusejs'
+import { AppContext } from '../context/app'
 
 const StyledSearch = styled.div`
   position: fixed;
@@ -57,30 +64,64 @@ const StyledSearch = styled.div`
       li {
         position: relative;
         margin-bottom: 1.5rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .inp {
+      font-size: 1.5rem;
+    }
+    .closeIcon {
+      width: 35px;
+      height: 35px;
     }
   }
 `
 type SearchProps = {
   fusejs: {
-    index: string
-    data: Array<object>
+    publicUrl: string
   }
 }
 
+type SearchItem = {
+  id: string
+  path: string
+  title: string
+  body: string
+}
+
 const Search: FunctionComponent<SearchProps> = function () {
-  const [query, setQuery] = useState<string>('')
+  // index.js(최상위)로부터 다운 후 파싱하여 검색을 수행
   const data = useStaticQuery<SearchProps>(graphql`
     {
       fusejs {
-        index
-        data
+        publicUrl
       }
     }
   `)
 
-  // fusejs 객체를 가공 없이 그대로 넘긴다
-  const result = useGatsbyPluginFusejs(query, data.fusejs)
+  const [query, setQuery] = useState<string>('')
+  const { fuseData, setFuseData } = useContext(AppContext)
+  const result = useGatsbyPluginFusejs<SearchItem>(query, fuseData)
+
+  const [isFetching, setIsFetching] = useState(false)
+
+  const fetching = useRef(false)
+  useEffect(() => {
+    if (!fetching.current && !fuseData && query) {
+      fetching.current = true
+
+      fetch(data.fusejs.publicUrl)
+        .then(res => res.json())
+        .then(data => setFuseData(data))
+        .finally(() => setIsFetching(false))
+    }
+  }, [fuseData, query, setFuseData])
 
   return (
     <StyledSearch>
@@ -104,13 +145,24 @@ const Search: FunctionComponent<SearchProps> = function () {
           </button>
         </div>
         <div className="list">
-          <ul className="searchResult">
-            {result.map(({ item }) => (
-              <li key={item.id}>
-                <Link to={item.path}>{item.title}</Link>
-              </li>
-            ))}
-          </ul>
+          {!isFetching && query && !result.length ? (
+            <p>검색 결과가 없습니다</p>
+          ) : (
+            <ul className="searchResult">
+              {result.map(({ item }) => (
+                <li key={item.id}>
+                  <Link
+                    to={item.path}
+                    style={{
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </StyledSearch>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=IBM+Plex+Sans+KR&display=swap');
+
 .light {
     --color-background:#f6f6f6;
     /* --color-text: #000000; */
@@ -16,9 +18,10 @@
     --color-postLink-shadow: 0 0 5px rgba(0, 0, 0, 2.15);
 }
 
-body {
+body {    
     background-color: var(--color-background);
     transition: 0.2s;
+    font-family: 'IBM Plex Sans KR', sans-serif, 'Fira Code', monospace;
 }
 
 h1,
