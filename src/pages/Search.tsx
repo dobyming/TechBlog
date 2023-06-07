@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import CloseIcon from '../assets/close.svg'
-import { graphql, useStaticQuery, Link } from 'gatsby'
-// import { useGatsbyPluginFusejs } from 'react-use-fusejs'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import { useGatsbyPluginFusejs } from 'react-use-fusejs'
 
 const StyledSearch = styled.div`
   position: fixed;
@@ -44,25 +44,43 @@ const StyledSearch = styled.div`
     background-color: transparent;
     cursor: pointer;
   }
+
+  .list {
+    position: relative;
+    padding-top: 20px;
+
+    ul {
+      padding-left: 0;
+      margin: 0 0 0 0.5rem;
+      list-style-type: none;
+
+      li {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
 `
+type SearchProps = {
+  fusejs: {
+    index: string
+    data: Array<object>
+  }
+}
 
-// interface SearchStaticQuery {
-//   fusejs: { index: string; data: string }
-// }
+const Search: FunctionComponent<SearchProps> = function () {
+  const [query, setQuery] = useState<string>('')
+  const data = useStaticQuery<SearchProps>(graphql`
+    {
+      fusejs {
+        index
+        data
+      }
+    }
+  `)
 
-// interface SearchItem {
-//   id: string
-//   path: string
-//   title: string
-//   body: string
-// }
-
-const Search = () => {
-  // const data = useStaticQuery<SearchStaticQuery>(getSearchResult)
-
-  // const [query, setQuery] = useState('')
-  // const { fusejs, setFusejs } = useState(null)
-  // const result = useGatsbyPluginFusejs<SearchItem>(query, fusejs)
+  // fusejs 객체를 가공 없이 그대로 넘긴다
+  const result = useGatsbyPluginFusejs(query, data.fusejs)
 
   return (
     <StyledSearch>
@@ -76,6 +94,7 @@ const Search = () => {
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              onChange={e => setQuery(e.target.value)}
             />
           </form>
           <button className="closeBtn" type="button">
@@ -84,18 +103,18 @@ const Search = () => {
             </Link>
           </button>
         </div>
+        <div className="list">
+          <ul className="searchResult">
+            {result.map(({ item }) => (
+              <li key={item.id}>
+                <Link to={item.path}>{item.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </StyledSearch>
   )
 }
 
 export default Search
-
-// export const getSearchResult = graphql`
-//   query getSearch {
-//     fusejs {
-//       index
-//       data
-//     }
-//   }
-// `
