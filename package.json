@@ -20,6 +20,7 @@
     "gatsby-plugin-canonical-urls": "^5.9.0",
     "gatsby-plugin-emotion": "^8.8.0",
     "gatsby-plugin-feed": "^5.10.0",
+    "gatsby-plugin-fusejs": "^2.0.2",
     "gatsby-plugin-image": "^3.9.0",
     "gatsby-plugin-manifest": "^5.9.0",
     "gatsby-plugin-offline": "^6.10.0",
@@ -45,6 +46,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-use-fusejs": "^2.0.2",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
