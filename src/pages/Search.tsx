@@ -105,10 +105,15 @@ const Search: FunctionComponent<SearchProps> = function () {
     }
   `)
 
+  /**
+   * 1. Get User Search Input value
+   * 2. Collect all Index data and store in context
+   * 3. Based on fuseData find query data with fuzzy search
+   * 4. Lazy Loading (when Post's amount is getting larger)
+   */
   const [query, setQuery] = useState<string>('')
   const { fuseData, setFuseData } = useContext(AppContext)
   const result = useGatsbyPluginFusejs<SearchItem>(query, fuseData)
-
   const [isFetching, setIsFetching] = useState(false)
 
   const fetching = useRef(false)

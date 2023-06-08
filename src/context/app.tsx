@@ -1,4 +1,10 @@
-import React, { createContext, SetStateAction, useState } from 'react'
+import React, {
+  createContext,
+  SetStateAction,
+  useState,
+  ReactNode,
+  FunctionComponent,
+} from 'react'
 import { Dispatch } from 'react'
 
 interface AppContext {
@@ -11,8 +17,12 @@ export const AppContext = createContext<AppContext>({
   setFuseData: () => {},
 })
 
+type AppProps = {
+  children: ReactNode
+}
+
 // Provide Props to Search
-const AppProvider = ({ children }: { children: React.ReactNode }) => {
+const AppProvider: FunctionComponent<AppProps> = function ({ children }) {
   const [fuseData, setFuseData] = useState(null)
 
   return (
