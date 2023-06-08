@@ -97,7 +97,7 @@ const Introduction = () => {
     <Background className={scrolled ? 'scroll' : ''}>
       <Wrapper>
         <HeaderTheme />
-        <Link to="/Search">
+        <Link to="/Search" aria-label="Search">
           <SearchIcon fill="black" className="searchIcon" />
         </Link>
         <Title to={'/'}>dobyming</Title>
