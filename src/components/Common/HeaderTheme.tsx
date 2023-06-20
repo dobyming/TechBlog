@@ -6,8 +6,10 @@ import styled from '@emotion/styled'
 import { isBrowser } from '../../util'
 import ClientOnly from './ClientOnly'
 
-const ThemeHeader = styled.div`
+const ThemeHeader = styled.button`
   position: absolute;
+  border: 0;
+  background-color: transparent;
   top: 1rem;
   right: 1rem;
   cursor: pointer;
