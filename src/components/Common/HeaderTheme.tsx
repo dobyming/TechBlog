@@ -52,7 +52,7 @@ const HeaderTheme = () => {
 
   return (
     <ClientOnly>
-      <ThemeHeader onClick={handleTheme}>
+      <ThemeHeader className="themeIcon" onClick={handleTheme}>
         {isDark ? (
           <Sun stroke="#FF5733" fill="#FF5733" />
         ) : (

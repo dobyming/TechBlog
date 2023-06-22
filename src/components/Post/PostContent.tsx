@@ -11,17 +11,18 @@ const MarkdownRenderer = styled.div`
   flex-direction: column;
   width: 768px;
   margin: 0 auto;
-  padding: 80px 0;
-  word-break: break-all;
+  padding: 30px 0;
+  word-break: break-word;
 
   // Markdown Style
-  line-height: 1.8;
+  line-height: 1.8rem;
   font-size: 15px;
   font-weight: 400;
 
   // Apply Padding Attribute to All Elements
-  p {
-    padding: 3px 0;
+  p,
+  .gatsby-highlight {
+    margin: 0.2rem 0 1rem;
   }
 
   // Adjust Heading Element Style
@@ -32,11 +33,15 @@ const MarkdownRenderer = styled.div`
     margin-bottom: 20px;
   }
 
+  h4 {
+    margin-bottom:10px;
+  }
+
   * + h1,
   * + h2,
   * + h3,
   * + h4 {
-    margin-top: 20px;
+    margin-top: 25px;
   }
 
   hr + h1,
@@ -68,8 +73,8 @@ const MarkdownRenderer = styled.div`
   // Adjust List Element Style
   ol,
   ul {
-    margin-left: 20px;
-    padding: 30px 0;
+    margin: 1rem 0 2rem;
+    padding-left: 2rem;
   }
 
   img {

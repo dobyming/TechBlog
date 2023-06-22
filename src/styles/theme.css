@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=IBM+Plex+Sans+KR&display=swap');
-
 .light {
     --color-background:#f6f6f6;
+    --color-siteTitle-link: #000;
     --color-category-bg: black;
     --color-category-font: white;
     --color-Introduction-shadow: 1px 2px 18px rgba(0, 0, 0, 0.2);
@@ -11,6 +10,7 @@
 .dark {
     --color-background: #25262c;
     --color-text: #f6f6f6;
+    --color-siteTitle-link: #f6f6f6;
     --color-category-bg: #E8E8E8;
     --color-category-font: #000000;
     --color-Introduction-shadow: 1px 2px 18px rgba(255, 255, 255, 0.1);
@@ -38,6 +38,11 @@ tr,
 footer,
 span {
   color: var(--color-text);
+}
+
+/* Title Link Tag */
+a::before {
+    background-color: var(--color-siteTitle-link);
 }
 
 /* SVG Icons Themeing */

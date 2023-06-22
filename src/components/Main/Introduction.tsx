@@ -62,16 +62,39 @@ const Wrapper = styled.div`
 `
 
 const Title = styled(Link)`
+  position: relative;
   font-size: 35px;
   font-weight: 700;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
   @media (max-width: 768px) {
     padding-top: 5px;
     font-size: 28px;
+
+    &::before {
+      background-color: transparent;
+    }
   }
 `
 
 const SvgNav = styled.div`
   display: flex;
+  padding-top: 5px;
   justify-content: center;
 
   .rssFeed {
