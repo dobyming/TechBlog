@@ -7,7 +7,10 @@ import { isBrowser } from '../../util'
 
 const StyledPager = styled.nav`
   height: 56px;
-  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  padding: 20px;
 
   ul {
     text-align: center;

@@ -4,11 +4,12 @@ import { PostPageItemType } from 'types/PostItem.types'
 import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
-import CommentWidget from 'components/Post/CommentWidget'
+// import CommentWidget from 'components/Post/CommentWidget'
 import ScrollToTop from 'components/Common/ScrollToTop'
 import HeaderTheme from 'components/Common/HeaderTheme'
 import PostPrevNextBtn from 'components/Post/PostPrevNextBtn'
 import PostToc from 'components/Post/PostToc'
+import Giscus from 'components/Post/Giscus'
 
 type PostTemplateProps = {
   data: {
@@ -74,11 +75,11 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         <PostToc headings={headings} />
         <PostContent html={html} />
       </div>
+      <Giscus />
       <PostPrevNextBtn
         previousPagePath={prev ? prev.node.fields.slug : null}
         nextPagePath={next ? next.node.fields.slug : null}
       />
-      <CommentWidget />
       <ScrollToTop />
     </Template>
   )
