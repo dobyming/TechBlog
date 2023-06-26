@@ -4,15 +4,36 @@ import { isBrowser } from '../../util'
 
 const GiscusWrapper = styled.div`
   width: 768px;
-  padding: 10px 0 0px;
+  padding: 30px;
   margin-left: auto;
   margin-right: auto;
 
   @media (max-width: 768px) {
+    width: 100%;
     padding: 0 20px;
   }
 `
 const COMMENTS_ID = 'comments-container'
+
+/* dark mode */
+// const changeGiscusTheme = () => {
+//   const theme = window.document.body.classList.contains('dark')
+//     ? 'dark_high_contrast'
+//     : 'light_high_contrast'
+//   function sendMessage(message: object) {
+//     const iframe = document.querySelector('iframe.giscus-frame')
+//     if (!iframe) return
+//     iframe.contentWindow.postMessage(
+//       { giscus: message },
+//       'https://giscus.app/client.js',
+//     )
+//   }
+//   sendMessage({
+//     setConfig: {
+//       theme: theme,
+//     },
+//   })
+// }
 
 const Giscus = (): JSX.Element => {
   if (isBrowser()) {
