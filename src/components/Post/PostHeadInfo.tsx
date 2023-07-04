@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'gatsby'
+import Introduction from 'components/Main/Introduction'
 
 export type PostHeadInfoProps = {
   title: string
@@ -16,8 +14,6 @@ const PostHeadInfoWrapper = styled.div`
   width: 768px;
   height: 100%;
   margin: 0 auto;
-  padding: 60px 0;
-  color: #ffffff;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -25,25 +21,7 @@ const PostHeadInfoWrapper = styled.div`
   }
 `
 
-const PrevPageIcon = styled(Link)`
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #000000;
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
-  @media (max-width: 768px) {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-  }
-`
-const Title = styled.div`
+const Title = styled.h1`
   display: -webkit-box;
   overflow: hidden;
   overflow-wrap: break-word;
@@ -52,8 +30,6 @@ const Title = styled.div`
   white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 45px;
-  font-weight: 800;
 
   @media (max-width: 768px) {
     font-size: 30px;
@@ -62,18 +38,11 @@ const Title = styled.div`
 
 const PostData = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 15px;
-    font-weight: 400;
-  }
+  font-size: 15px;
+  font-weight: 400;
 `
 
 const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
@@ -83,9 +52,7 @@ const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
 }) {
   return (
     <PostHeadInfoWrapper>
-      <PrevPageIcon to={'/'}>
-        <FontAwesomeIcon icon={faArrowLeft} />
-      </PrevPageIcon>
+      <Introduction />
       <Title>{title}</Title>
       <PostData>
         <div>{categories.join(' / ')}</div>
