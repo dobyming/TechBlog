@@ -4,12 +4,14 @@ import React, {
   useRef,
   useEffect,
   useContext,
+  useCallback,
 } from 'react'
 import styled from '@emotion/styled'
 import CloseIcon from '../assets/close.svg'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { useGatsbyPluginFusejs } from 'react-use-fusejs'
 import { AppContext } from '../context/app'
+// import { navigate } from 'gatsby'
 
 const StyledSearch = styled.div`
   position: fixed;
@@ -128,6 +130,10 @@ const Search: FunctionComponent<SearchProps> = function () {
     }
   }, [fuseData, query, setFuseData])
 
+  // const close = useCallback(() => {
+  //   setTimeout(() => navigate(-1), 100)
+  // }, [])
+
   return (
     <StyledSearch>
       <div className="content">
@@ -144,9 +150,7 @@ const Search: FunctionComponent<SearchProps> = function () {
             />
           </form>
           <button className="closeBtn" type="button">
-            <Link to={'/'}>
-              <CloseIcon className="closeIcon" stroke="#000000" />
-            </Link>
+            <CloseIcon className="closeIcon" stroke="#000000" />
           </button>
         </div>
         <div className="list">

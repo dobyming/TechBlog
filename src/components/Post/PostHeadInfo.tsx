@@ -30,34 +30,24 @@ const Title = styled.h1`
   white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
-  @media (max-width: 768px) {
-    font-size: 30px;
-  }
 `
 
-const PostData = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: 400;
+const PostDate = styled.p`
+  padding-top: 20px;
+  text-align: right;
+  font-size: 12px;
+  font-style: italic;
 `
 
 const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
   title,
   date,
-  categories,
 }) {
   return (
     <PostHeadInfoWrapper>
       <Introduction />
       <Title>{title}</Title>
-      <PostData>
-        <div>{categories.join(' / ')}</div>
-        <div>{date}</div>
-      </PostData>
+      <PostDate>{date}</PostDate>
     </PostHeadInfoWrapper>
   )
 }
