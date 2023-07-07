@@ -54,6 +54,18 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 
+  .about {
+    position: absolute;
+    top: 1.5rem;
+    right: 8.3rem;
+    font-size: 17px;
+    cursor: pointer;
+
+    &:hover {
+      color: gray;
+    }
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     height: 80px;
@@ -123,6 +135,12 @@ const Introduction = () => {
         <Link to="/Search" aria-label="Search">
           <SearchIcon fill="black" className="searchIcon" />
         </Link>
+        {/* <Link to="/About" aria-label="About"> */}
+        <p className="about">
+          <strong>About</strong>
+        </p>
+        {/* </Link> */}
+
         <Title to={'/'}>dobyming</Title>
         <SvgNav>
           <a
