@@ -5,8 +5,6 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
-import ScrollToTop from 'components/Common/ScrollToTop'
-import HeaderTheme from 'components/Common/HeaderTheme'
 import PostPrevNextBtn from 'components/Post/PostPrevNextBtn'
 import PostToc from 'components/Post/PostToc'
 
@@ -53,23 +51,14 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         summary,
         date,
         categories,
-        thumbnail: {
-          childImageSharp: { gatsbyImageData },
-          publicURL,
-        },
+        thumbnail: { publicURL },
       },
     },
   } = edges[0]
 
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
-      <PostHead
-        title={title}
-        date={date}
-        categories={categories}
-        thumbnail={gatsbyImageData}
-      />
-      <HeaderTheme />
+      <PostHead title={title} date={date} categories={categories} />
       <div>
         <PostToc headings={headings} />
         <PostContent html={html} />
@@ -79,7 +68,6 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         nextPagePath={next ? next.node.fields.slug : null}
       />
       <CommentWidget />
-      <ScrollToTop />
     </Template>
   )
 }
