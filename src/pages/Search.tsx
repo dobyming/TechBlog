@@ -11,7 +11,7 @@ import CloseIcon from '../assets/close.svg'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { useGatsbyPluginFusejs } from 'react-use-fusejs'
 import { AppContext } from '../context/app'
-// import { navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 
 const StyledSearch = styled.div`
   position: fixed;
@@ -130,9 +130,9 @@ const Search: FunctionComponent<SearchProps> = function () {
     }
   }, [fuseData, query, setFuseData])
 
-  // const close = useCallback(() => {
-  //   setTimeout(() => navigate(-1), 100)
-  // }, [])
+  const close = useCallback(() => {
+    void navigate(-1)
+  }, [])
 
   return (
     <StyledSearch>
@@ -149,7 +149,7 @@ const Search: FunctionComponent<SearchProps> = function () {
               onChange={e => setQuery(e.target.value)}
             />
           </form>
-          <button className="closeBtn" type="button">
+          <button className="closeBtn" type="button" onClick={close}>
             <CloseIcon className="closeIcon" stroke="#000000" />
           </button>
         </div>
