@@ -33,3 +33,10 @@ export type PostListItemType = {
     frontmatter: PostFrontmatterType
   }
 }
+
+export type ResumeType = {
+  node: {
+    id: string
+    html: string
+  }
+}
