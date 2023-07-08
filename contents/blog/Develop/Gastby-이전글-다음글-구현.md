@@ -3,7 +3,7 @@ date: '2023-05-09'
 title: 'Gatsby 블로그 - 이전글/다음글 버튼 로직 구현하기 '
 categories: ['Web', 'Gatsby']
 summary: '**이전글/다음글** 기능을 구현해서 사용자가 다른 포스팅도 쉽게 접근할 수 있도록 해야겠다! 라는 생각에서 시작했습니다.'
-thumbnail: '../images/gatsby.jpg'
+thumbnail: '../../images/gatsby.jpg'
 ---
 ## 동기 
 요즘 `Gatsby`를 활용하여 Tech Blog를 구현하고 있습니다. 얼추 포스팅 템플릿도 구현이 된 상태에서, 다른 사람들이 만든 블로그와 특히 개발 블로그로 유명한 **velog**에서 어떤 요소들을 갖고 있는지 체크해본 결과, 

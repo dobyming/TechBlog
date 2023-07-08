@@ -3,7 +3,7 @@ module.exports = {
     title: `dobyming - TechBlog`,
     description: `주니어 프론트엔드 개발자로서 TIL을 남기는 공간입니다.`,
     author: `dobyming`,
-    siteUrl: 'https://dobyming.github.io/', // 배포 후 변경
+    siteUrl: 'https://dobyming.github.io/',
   },
   plugins: [
     {
@@ -103,8 +103,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `contents`,
-        path: `${__dirname}/contents`,
+        name: `blog`,
+        path: `${__dirname}/contents/blog`,
       },
     },
     {

@@ -3,7 +3,7 @@ date: '2023-03-16'
 title: 'Redux Toolkit으로 React Native Todo앱 구조 잡아보기'
 categories: ['React Native','Redux']
 summary: '리액트 프로젝트를 진행하면서 가장 챌린지 했던 부분은 state관리였습니다. 각각의 컴포넌트는 state를 관리하고 있지만, 컴포넌트 파일이 방대해지고 props로 전달해야 되는 부분이 많아지게 되면 state 관리가 복잡해져서 굉장히 설계에 어려움을 겪었던 경험이 있었습니다..😥'
-thumbnail: '../images/redux.png'
+thumbnail: '../../images/redux.png'
 ---
 ## 🔎 동기
 리액트 프로젝트를 진행하면서 가장 챌린지 했던 부분은 **state관리**였습니다. 

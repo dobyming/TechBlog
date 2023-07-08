@@ -3,7 +3,7 @@ date: '2023-06-08'
 title: 'Gatsby 블로그 - 검색기능 구현하기🔎'
 categories: ['Web', 'Gatsby']
 summary: '이번 포스팅에선 Gatsby 블로그에 검색 기능을 추가하는 방법에 대해서 적어보려고 합니다.'
-thumbnail: '../images/gatsby.jpg'
+thumbnail: '../../images/gatsby.jpg'
 ---
 ## 동기
 동기라고 거창하게 써놨지만 별거 없습니다. 앞으로 이 블로그를 평생 쓸 예정인데.. 그럼 지금보다 포스팅 수도 더 많아질거고. 그러면 내가 일일이 무한 스크롤로 내려서 글을 찾는 행위 자체가 굉장히 불편한데? 

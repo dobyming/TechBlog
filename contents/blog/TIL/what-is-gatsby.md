@@ -3,7 +3,7 @@ date: '2023-04-24'
 title: 'Gatsby란?'
 categories: ['Gatsby','Web']
 summary: 'Gatsby는 React 기반으로 설계된 프레임워크입니다. 이때 Gatsby를 알기전에 JAM Stack이라는 용어에 대해서 알아야 할 필요가 있습니다.'
-thumbnail: '../images/gatsby.jpg'
+thumbnail: '../../images/gatsby.jpg'
 ---
 ### Gatsby에 대해 설명하기 전에..
 [Gatsby](https://www.gatsbyjs.com/)는 React 기반으로 설계된 프레임워크입니다. 이때 Gatsby를 알기전에 **JAM Stack**이라는 용어에 대해서 알아야 할 필요가 있습니다. 

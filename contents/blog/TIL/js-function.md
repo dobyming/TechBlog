@@ -3,7 +3,7 @@ date: '2023-01-19'
 title: 'JavaScript - 함수'
 categories: ['JavaScript']
 summary: '자바스크립트의 함수와 관련하여 중요 개념을 다뤄봅니다.'
-thumbnail: '../images/jsicon.png'
+thumbnail: '../../images/jsicon.png'
 ---
 ### 함수
 

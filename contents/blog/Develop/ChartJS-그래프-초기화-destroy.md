@@ -3,7 +3,7 @@ date: '2023-01-15'
 title: 'chart.js 그래프 초기화 - destroy()'
 categories: ['ChartJS', 'TypeScript']
 summary: '초기에 그래프를 로딩하고 그리는데에는 문제가 없었지만, 다른 나라를 클릭하고 데이터를 불러올때, 기존 그래프가 초기화 되질 않아서 다음과 같이 이슈가 발생했다.'
-thumbnail: '../images/ChartJS.png'
+thumbnail: '../../images/ChartJS.png'
 ---
 ## Issue - "Canvas is already in use"
 웹팩 번들링 문제를 해결하고 나니, 또 다른 이슈가 발생했었다. ~~산 넘어 산~~
