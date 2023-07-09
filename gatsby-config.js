@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', allow: '/' }],
+        policy: [{ userAgent: '*', allow: '/', disallow: '/about/' }],
       },
     },
     `gatsby-plugin-emotion`,
@@ -105,6 +105,13 @@ module.exports = {
       options: {
         name: `contents`,
         path: `${__dirname}/contents`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `about`,
+        path: `${__dirname}/contents/about`,
       },
     },
     {
