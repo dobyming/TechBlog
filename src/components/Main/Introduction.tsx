@@ -136,9 +136,7 @@ const Introduction = () => {
           <SearchIcon fill="black" className="searchIcon" />
         </Link>
         <Link to="/about" aria-label="About">
-          <p className="about">
-            <strong>About</strong>
-          </p>
+          <p className="about">About</p>
         </Link>
 
         <Title to={'/'}>dobyming</Title>

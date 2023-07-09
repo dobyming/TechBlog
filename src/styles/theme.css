@@ -10,6 +10,7 @@
 .dark {
     --color-background: #232326;
     --color-text: #f6f6f6;
+    --color-strong-text: #6abcff;
     --color-siteTitle-link: #f6f6f6;
     --color-category-bg: #E8E8E8;
     --color-category-font: #000000;
@@ -32,12 +33,17 @@ hr,
 input,
 a,
 p,
+i,
 li,
 td,
 tr,
 footer,
 span {
   color: var(--color-text);
+}
+
+strong {
+    color: var(--color-strong-text);
 }
 
 /* Title Link Tag */

@@ -19,7 +19,7 @@ title: resume
 애자일 방식의 차세대 간선 시스템 프로젝트 - 프론트엔드 파트 개선 및 개발 작업 수행 
 (***Stack : eXbuilder6, JavaScript(ES6), React, Docker, Redis, Kafka***)
 
-- **[feature] 유저 Role에 따른 버튼(기능) 권한 부여 기능 작업**
+- **[feature] 유저 Role에 따른 버튼(기능) 권한 부여 작업**
     - 로그인 시, JSON 값으로 부여되는 권한 코드에 따른 버튼(기능) 권한 이벤트 함수를 구현하고 전체 페이지에 적용
 - **[feature] 미아편명 팝업 페이지 구현**
     - 백엔드 개발자와 페어코딩을 통해, 팝업 버튼을 클릭 시 API가 호출되면서 팝업화면에 대체 가능한 편명을 조회 및 저장하는 기능 구현
@@ -38,25 +38,25 @@ title: resume
 
 # Skills
 ### Front-End
-- HTML, CSS, JavaScript, TypeScript ,Emotion
+- HTML, CSS, JavaScript, TypeScript, Emotion
 - NPM, WebPack
-- React.js, React-Native, GatsbyJS, GraphQL
+- React, React-Native, GatsbyJS, GraphQL
 
 ### Back-End & Server
 - Python
 - NodeJS, ExpressJS
-- Nginx, Axios , Ajax
+- Nginx, Axios, Ajax
 - MySQL
 
 ### DevOps
-- Firebase, Github Pages
+- Firebase, Firebase Auth, Github Pages
 - AWS (EC2, S3, CodePipeline)
 
 ### Collaboration
-- VS Code, IntelliJ, DBeaver , PyCharm
+- VS Code, IntelliJ, PyCharm
 - Git, Github, AWS CodeCommit
-- Google Space , Redmine
+- Google Space, Redmine
 
 # Education
-## **인하대학교(Inha University)** 
+## 인하대학교(Inha University) 
 *컴퓨터공학과(Bachelor of Computer Engineering) - (Mar 2020 ~ Feb 2023)*
