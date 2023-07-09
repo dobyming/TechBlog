@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /about/
 Sitemap: https://dobyming.github.io/sitemap-index.xml
 Host: https://dobyming.github.io
