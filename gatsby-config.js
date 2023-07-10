@@ -35,7 +35,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/',
+      }
+    },
     {
       resolve: 'gatsby-plugin-feed',
       options: {
