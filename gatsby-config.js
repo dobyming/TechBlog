@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `dobyming - TechBlog`,
-    description: `주니어 프론트엔드 개발자로서 TIL을 남기는 공간입니다.`,
+    title: `dobyming's TechBlog`,
+    description: `개발 TIL을 남기는 공간입니다.`,
     author: `dobyming`,
-    siteUrl: 'https://dobyming.github.io/', // 배포 후 변경
+    siteUrl: 'https://dobyming.github.io/',
   },
   plugins: [
     {
@@ -14,13 +14,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: 'https://dobyming.github.io/',
-        stripQueryString: true,
-      },
-    },
-    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
@@ -28,14 +21,22 @@ module.exports = {
         }
       }
     },
+    `gatsby-plugin-advanced-sitemap`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: 'https://dobyming.github.io/',
+        sitemap: 'https://dobyming.github.io/sitemap-pages.xml',
         policy: [{ userAgent: '*', allow: '/', disallow: '/about/' }],
       },
     },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://dobyming.github.io/',
+      },
+    },
     `gatsby-plugin-emotion`,
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-feed',
       options: {
