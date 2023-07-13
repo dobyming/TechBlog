@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
-import HeaderTheme from 'components/Common/HeaderTheme'
-import GithubIcon from '../../assets/github.svg'
-import RSS from '../../assets/rss.svg'
 import { Link } from 'gatsby'
 import { isBrowser } from '../../util'
-import SearchIcon from '../../assets/search.svg'
+import BottomNav from './../Common/Navigation/BottomNav'
+import NavBar from 'components/Common/Navigation/NavBar'
 
 const Background = styled.div`
   position: fixed;
@@ -47,25 +45,6 @@ const Wrapper = styled.div`
   height: 100px;
   margin: 0 auto;
 
-  .searchIcon {
-    position: absolute;
-    top: 1.5rem;
-    right: 5rem;
-    cursor: pointer;
-  }
-
-  .about {
-    position: absolute;
-    top: 1.5rem;
-    right: 8.3rem;
-    font-size: 17px;
-    cursor: pointer;
-
-    &:hover {
-      color: gray;
-    }
-  }
-
   @media (max-width: 768px) {
     width: 100%;
     height: 80px;
@@ -104,16 +83,6 @@ const Title = styled(Link)`
   }
 `
 
-const SvgNav = styled.div`
-  display: flex;
-  padding-top: 5px;
-  justify-content: center;
-
-  .rssFeed {
-    margin: 5px;
-  }
-`
-
 const Introduction = () => {
   const [scrolled, setScrolled] = useState<boolean>(false)
   // when to trigger event
@@ -131,27 +100,9 @@ const Introduction = () => {
   return (
     <Background className={scrolled ? 'scroll' : ''}>
       <Wrapper>
-        <HeaderTheme />
-        <Link to="/Search" aria-label="Search">
-          <SearchIcon fill="black" className="searchIcon" />
-        </Link>
-        <Link to="/about" aria-label="About">
-          <p className="about">About</p>
-        </Link>
-
+        <NavBar />
         <Title to={'/'}>dobyming</Title>
-        <SvgNav>
-          <a
-            href="https://github.com/dobyming"
-            aria-label="GitHub"
-            target={'_blank'}
-          >
-            <GithubIcon className="githubIcon" />
-          </a>
-          <Link to="/rss.xml" className="rssFeed" aria-label="RSS">
-            <RSS fill="black" />
-          </Link>
-        </SvgNav>
+        <BottomNav />
       </Wrapper>
       <hr />
     </Background>
