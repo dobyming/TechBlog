@@ -1,8 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `dobyming - TechBlog`,
+    title: `dobyming | TechBlog`,
     description: `주니어 프론트엔드 개발자로서 TIL을 남기는 공간입니다.`,
-    author: `dobyming`,
+    author: `Damin Kim`,
+    resume: {
+      title: 'About | Damin Kim',
+      description: 'Introducing Damin Kim.',
+    },
     siteUrl: 'https://dobyming.github.io/', // 배포 후 변경
   },
   plugins: [

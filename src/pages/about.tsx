@@ -1,10 +1,19 @@
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import { ResumeType } from 'types/PostItem.types'
+import ResumeTemplate from 'components/Common/ResumeTemplate'
 import styled from '@emotion/styled'
 
 type AboutProps = {
   data: {
+    site: {
+      siteMetadata: {
+        resume: {
+          title: string
+          description: string
+        }
+      }
+    }
     allMarkdownRemark: {
       edges: ResumeType
     }
@@ -125,17 +134,38 @@ const MarkdownRenderer = styled.div`
   }
 `
 
-const about: FunctionComponent<AboutProps> = function ({ data }) {
-  const resumes = data.allMarkdownRemark.edges
+const about: FunctionComponent<AboutProps> = function ({
+  data: {
+    site: {
+      siteMetadata: {
+        resume: { title, description },
+      },
+    },
+    allMarkdownRemark: { edges },
+  },
+}) {
+  const resumes = edges
   const resume = resumes.map(({ node }) => node)[0]
 
-  return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: resume.html }} />
+  return (
+    <ResumeTemplate title={title} description={description}>
+      <MarkdownRenderer dangerouslySetInnerHTML={{ __html: resume.html }} />
+    </ResumeTemplate>
+  )
 }
 
 export default about
 
 export const queryResume = graphql`
   query {
+    site {
+      siteMetadata {
+        resume {
+          title
+          description
+        }
+      }
+    }
     allMarkdownRemark(filter: { frontmatter: { categories: { eq: null } } }) {
       edges {
         node {
