@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { isBrowser } from '../../util'
 import BottomNav from './../Common/Navigation/BottomNav'
 import NavBar from 'components/Common/Navigation/NavBar'
+import ReorderIcon from '../../assets/reorder.svg'
+import CloseIcon from '../../assets/close.svg'
+
+type NavBarExtendendProps = {
+  extendNavBar: boolean
+}
 
 const Background = styled.div`
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 1;
 
   hr {
     width: 768px;
@@ -83,11 +89,56 @@ const Title = styled(Link)`
   }
 `
 
-const Introduction = () => {
-  const [scrolled, setScrolled] = useState<boolean>(false)
-  // when to trigger event
-  const onScroll = () => setScrolled(window.scrollY > 20)
+const OpenLinksButton = styled.button`
+  position: absolute;
+  top: 1.3rem;
+  right: 1rem;
 
+  width: 35px;
+  height: 35px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+/* Spread Links in Tab(Reorder) button */
+const NavbarExtendedContainer = styled.div<NavBarExtendendProps>`
+  width: 100%;
+  height: ${props => (props.extendNavBar ? '20vh' : '')};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    color: ${isBrowser() && window.document.body.classList.contains('dark')};
+    font-size: 20px;
+    text-decoration: none;
+    margin: 10px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+/* Each Link component in Extended Container */
+const NavbarLinkExtended = styled(Link)`
+  color: ${isBrowser() && window.document.body.classList.contains('dark')};
+  font-size: 20px;
+  text-decoration: none;
+  margin: 10px;
+`
+
+const Introduction = () => {
+  const [extendNavbar, setExtendNavbar] = useState(false)
+  const [scrolled, setScrolled] = useState<boolean>(false)
+
+  /* when to trigger scroll event */
+  const onScroll = () => setScrolled(window.scrollY > 20)
   useEffect(() => {
     if (!isBrowser) {
       return
@@ -99,11 +150,29 @@ const Introduction = () => {
 
   return (
     <Background className={scrolled ? 'scroll' : ''}>
+      <NavBar />
+      <OpenLinksButton onClick={() => setExtendNavbar(cur => !cur)}>
+        {extendNavbar ? (
+          <CloseIcon className="closeIcon" stroke="#000000" />
+        ) : (
+          <ReorderIcon className="reOrder" />
+        )}
+      </OpenLinksButton>
+
       <Wrapper>
-        <NavBar />
         <Title to={'/'}>dobyming</Title>
         <BottomNav />
       </Wrapper>
+      {extendNavbar && (
+        <NavbarExtendedContainer
+          className="navBarExtended"
+          extendNavBar={extendNavbar}
+        >
+          <NavbarLinkExtended to="/about">About</NavbarLinkExtended>
+          <NavbarLinkExtended to="/Search">Search</NavbarLinkExtended>
+          <a href="https://github.com/dobyming">Github</a>
+        </NavbarExtendedContainer>
+      )}
       <hr />
     </Background>
   )

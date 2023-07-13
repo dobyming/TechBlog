@@ -34,7 +34,7 @@ const NavBarContainer = styled.div`
   }
 `
 
-function NavBar() {
+const NavBar = () => {
   return (
     <NavBarContainer>
       <HeaderTheme />
