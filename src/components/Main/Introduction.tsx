@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { isBrowser } from '../../util'
+import useTheme from 'hooks/useTheme'
 import BottomNav from './../Common/Navigation/BottomNav'
 import NavBar from 'components/Common/Navigation/NavBar'
 import ReorderIcon from '../../assets/reorder.svg'
@@ -89,7 +90,7 @@ const Title = styled(Link)`
   }
 `
 
-const OpenLinksButton = styled.button`
+const OpenReorderIcon = styled.button`
   position: absolute;
   top: 1.3rem;
   right: 1rem;
@@ -108,7 +109,7 @@ const OpenLinksButton = styled.button`
 /* Spread Links in Tab(Reorder) button */
 const NavbarExtendedContainer = styled.div<NavBarExtendendProps>`
   width: 100%;
-  height: ${props => (props.extendNavBar ? '20vh' : '')};
+  height: ${props => (props.extendNavBar ? '25vh' : '')};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,9 +134,17 @@ const NavbarLinkExtended = styled(Link)`
   margin: 10px;
 `
 
+const ThemeNavExtended = styled.button`
+  font-size: 20px;
+  margin: 10px;
+  border: none;
+  background-color: transparent;
+`
+
 const Introduction = () => {
   const [extendNavbar, setExtendNavbar] = useState(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
+  const [isDark, setIsDark] = useTheme()
 
   /* when to trigger scroll event */
   const onScroll = () => setScrolled(window.scrollY > 20)
@@ -151,18 +160,19 @@ const Introduction = () => {
   return (
     <Background className={scrolled ? 'scroll' : ''}>
       <NavBar />
-      <OpenLinksButton onClick={() => setExtendNavbar(cur => !cur)}>
+      <OpenReorderIcon onClick={() => setExtendNavbar(cur => !cur)}>
         {extendNavbar ? (
           <CloseIcon className="closeIcon" stroke="#000000" />
         ) : (
           <ReorderIcon className="reOrder" />
         )}
-      </OpenLinksButton>
+      </OpenReorderIcon>
 
       <Wrapper>
         <Title to={'/'}>dobyming</Title>
         <BottomNav />
       </Wrapper>
+
       {extendNavbar && (
         <NavbarExtendedContainer
           className="navBarExtended"
@@ -171,8 +181,12 @@ const Introduction = () => {
           <NavbarLinkExtended to="/about">About</NavbarLinkExtended>
           <NavbarLinkExtended to="/Search">Search</NavbarLinkExtended>
           <a href="https://github.com/dobyming">Github</a>
+          <ThemeNavExtended onClick={setIsDark}>
+            {isDark ? 'Light' : 'Dark'}
+          </ThemeNavExtended>
         </NavbarExtendedContainer>
       )}
+
       <hr />
     </Background>
   )
