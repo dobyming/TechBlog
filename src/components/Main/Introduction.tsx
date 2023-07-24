@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
-import HeaderTheme from 'components/Common/HeaderTheme'
-import GithubIcon from '../../assets/github.svg'
-import RSS from '../../assets/rss.svg'
 import { Link } from 'gatsby'
 import { isBrowser } from '../../util'
-import SearchIcon from '../../assets/search.svg'
+import useTheme from 'hooks/useTheme'
+import BottomNav from './../Common/Navigation/BottomNav'
+import NavBar from 'components/Common/Navigation/NavBar'
+import ReorderIcon from '../../assets/reorder.svg'
+import CloseIcon from '../../assets/close.svg'
+
+type NavBarExtendendProps = {
+  extendNavBar: boolean
+}
 
 const Background = styled.div`
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 1;
 
   hr {
     width: 768px;
@@ -46,25 +51,6 @@ const Wrapper = styled.div`
   width: 768px;
   height: 100px;
   margin: 0 auto;
-
-  .searchIcon {
-    position: absolute;
-    top: 1.5rem;
-    right: 5rem;
-    cursor: pointer;
-  }
-
-  .about {
-    position: absolute;
-    top: 1.5rem;
-    right: 8.3rem;
-    font-size: 17px;
-    cursor: pointer;
-
-    &:hover {
-      color: gray;
-    }
-  }
 
   @media (max-width: 768px) {
     width: 100%;
@@ -104,21 +90,64 @@ const Title = styled(Link)`
   }
 `
 
-const SvgNav = styled.div`
-  display: flex;
-  padding-top: 5px;
-  justify-content: center;
+const OpenReorderIcon = styled.button`
+  position: absolute;
+  top: 1.3rem;
+  right: 1rem;
 
-  .rssFeed {
-    margin: 5px;
+  width: 35px;
+  height: 35px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    display: none;
   }
 `
 
-const Introduction = () => {
-  const [scrolled, setScrolled] = useState<boolean>(false)
-  // when to trigger event
-  const onScroll = () => setScrolled(window.scrollY > 20)
+/* Spread Links in Tab(Reorder) button */
+const NavbarExtendedContainer = styled.div<NavBarExtendendProps>`
+  width: 100%;
+  height: ${props => (props.extendNavBar ? '25vh' : '')};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  a {
+    color: ${isBrowser() && window.document.body.classList.contains('dark')};
+    font-size: 20px;
+    text-decoration: none;
+    margin: 10px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+/* Each Link component in Extended Container */
+const NavbarLinkExtended = styled(Link)`
+  color: ${isBrowser() && window.document.body.classList.contains('dark')};
+  font-size: 20px;
+  text-decoration: none;
+  margin: 10px;
+`
+
+const ThemeNavExtended = styled.button`
+  font-size: 20px;
+  margin: 10px;
+  border: none;
+  background-color: transparent;
+`
+
+const Introduction = () => {
+  const [extendNavbar, setExtendNavbar] = useState(false)
+  const [scrolled, setScrolled] = useState<boolean>(false)
+  const [isDark, setIsDark] = useTheme()
+
+  /* when to trigger scroll event */
+  const onScroll = () => setScrolled(window.scrollY > 20)
   useEffect(() => {
     if (!isBrowser) {
       return
@@ -130,29 +159,34 @@ const Introduction = () => {
 
   return (
     <Background className={scrolled ? 'scroll' : ''}>
-      <Wrapper>
-        <HeaderTheme />
-        <Link to="/Search" aria-label="Search">
-          <SearchIcon fill="black" className="searchIcon" />
-        </Link>
-        <Link to="/about" aria-label="About">
-          <p className="about">About</p>
-        </Link>
+      <NavBar />
+      <OpenReorderIcon onClick={() => setExtendNavbar(cur => !cur)}>
+        {extendNavbar ? (
+          <CloseIcon className="closeIcon" stroke="#000000" />
+        ) : (
+          <ReorderIcon className="reOrder" />
+        )}
+      </OpenReorderIcon>
 
+      <Wrapper>
         <Title to={'/'}>dobyming</Title>
-        <SvgNav>
-          <a
-            href="https://github.com/dobyming"
-            aria-label="GitHub"
-            target={'_blank'}
-          >
-            <GithubIcon className="githubIcon" />
-          </a>
-          <Link to="/rss.xml" className="rssFeed" aria-label="RSS">
-            <RSS fill="black" />
-          </Link>
-        </SvgNav>
+        <BottomNav />
       </Wrapper>
+
+      {extendNavbar && (
+        <NavbarExtendedContainer
+          className="navBarExtended"
+          extendNavBar={extendNavbar}
+        >
+          <NavbarLinkExtended to="/about">About</NavbarLinkExtended>
+          <NavbarLinkExtended to="/Search">Search</NavbarLinkExtended>
+          <a href="https://github.com/dobyming">Github</a>
+          <ThemeNavExtended onClick={setIsDark}>
+            {isDark ? 'Light' : 'Dark'}
+          </ThemeNavExtended>
+        </NavbarExtendedContainer>
+      )}
+
       <hr />
     </Background>
   )
