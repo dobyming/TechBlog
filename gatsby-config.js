@@ -129,7 +129,7 @@ module.exports = {
         // 인덱스를 만들고자 하는 데이터의 쿼리
         query: `
           {
-            allMarkdownRemark {
+            allMarkdownRemark(filter: { frontmatter: { categories: { ne: null } } }) {
               nodes {
                 id
                 rawMarkdownBody
