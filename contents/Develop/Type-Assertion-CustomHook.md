@@ -5,9 +5,9 @@ categories: ['Web', 'Gatsby', 'TypeScript']
 summary: '타입스크립트의 타입 단언을 통해 Custom Hook 제대로 Return 해볼까요?'
 thumbnail: '../images/thumbnail-ts.png'
 ---
-개발블로그 운영을 약 3개월 하면서 모바일 반응형 UI/UX를 손 보고 있었습니다. 리팩토링을 수행하면서 그중 타입스크립트의 **타입 단언(Type Assertion)** 개념에 대해서 설명하고자 합니다. 
+개발블로그 운영을 약 3개월 하면서 모바일 반응형 UI/UX를 손 보고 있었습니다. 리팩토링을 수행하면서 그중 타입스크립트의 **타입 단언(Type Assertion)** 개념을 활용한것을 리팩토링 사례와 함께 설명하고자 합니다.
 
-개념은 알고 있었지만(한 30%..?), 실무나 프로젝트에선 어떻게 활용될까? 생각하면서 서서히 잊혀졌던 개념을 마침내 제 프로젝트에 적용한 글입니다. 사실 에러를 해결한 부분은 간단하지만 동기가 좀 이것저것 많습니다.. 
+개념은 일부 알고 있었지만(한 30%..?), 실무나 프로젝트에선 어떻게 활용될까? 생각하면서 서서히 잊혀졌던 개념을 마침내 제 프로젝트에 적용한 글입니다. 사실 에러를 해결한 부분은 간단하지만 동기가 좀 이것저것 많습니다.. 
 
 ## Custom Hook 생성할 수 밖에 없던 이유 
 
@@ -20,7 +20,7 @@ thumbnail: '../images/thumbnail-ts.png'
 
 이런식으로 다크모드도 모바일 화면에서 Reorder Icon 내에 배치하여 깔끔한 UI로 리팩토링 해야겠다 생각했습니다. 
 
-> ✨ 그럼 다크모드의 상태값을 어떻게 불러올것인가? 
+> ✨ 그럼 다크모드의 상태값을 어떻게 불러올것인가?
 
 커스텀 훅을 만들어야겠단 생각의 시초는 이 고민에서부터 시작됐습니다.
 
@@ -41,7 +41,7 @@ import { useState, useLayoutEffect, useCallback } from 'react'
 import { isBrowser } from '../util'
 
 const useTheme = () => {
-  const [isDark, setIsDark] = useState<boolean>(false)
+  const [theme, setTheme] = useState<boolean>(false)
   if (!isBrowser()) return null
   const userTheme = window.localStorage.getItem('color-theme')
 
@@ -106,7 +106,7 @@ export default HeaderTheme
 ```
 ThemeHeader는 이벤트 함수로 `setIsDark`를 받아올것이고, `isDark` 상태값에 따라 어떤 아이콘을 보여줄 것인지 결정할것입니다.
 
-onClick은 당연히 함수가 들어와야 하는 부분입니다. 하지만 타입스크립트 측면으로 봤을때는 return부에 타입이 제대로 지정이 되지 않았기 때문에 union type으로 onClick에 담기게 됩니다. 'boolean도 받을 수 있고 void 타입도 받을 수 있어!'를 전달하기 때문에 onClick의 입장에선 'boolean 뭔데..?' 로 받아들이기 때문에 에러가 발생합니다. 타입스크립트는 확실한걸 좋아하는 언어라는게 느껴지죠  
+onClick은 당연히 함수가 들어와야 하는 부분입니다. 하지만 타입스크립트 측면으로 봤을때는 return부에 타입이 제대로 지정이 되지 않았기 때문에 union type으로 onClick에 담기게 됩니다. 'boolean도 받을 수 있고 void 타입도 받을 수 있어!'를 전달하기 때문에 onClick의 입장에선 'boolean 뭔데..?' 로 받아들여 에러가 발생합니다. 타입스크립트는 확실한걸 좋아하는 언어라는게 느껴지죠  
 
 
 [Typing Custom hook](https://fettblog.eu/typescript-react-typeing-custom-hooks/) 해당 docs를 통해 해결할 수 있었는데 
