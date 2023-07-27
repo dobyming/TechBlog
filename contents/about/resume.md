@@ -34,7 +34,7 @@ title: resume
     - 조업사의 하루 기준에 맞춰 달력에 default로 날짜가 setting 될 수 있도록 Moment.js를 통해 작업 수행 (하루 기준 : 당일 10:00 AM ~ d+1 9:59 AM).
 
 # Side Projects
-[이 사이트](https://url.kr/qlcrmf)로 접속 시, 저의 Side Project를 확인하실 수 있습니다.
+[해당 사이트](https://url.kr/41juct)로 접속 시, 저의 Side Project를 확인하실 수 있습니다.
 
 # Skills
 ### Front-End
