@@ -109,8 +109,9 @@ const OpenReorderIcon = styled.button`
 /* Spread Links in Tab(Reorder) button */
 const NavbarExtendedContainer = styled.div<NavBarExtendendProps>`
   width: 100%;
-  height: ${props => (props.extendNavBar ? '25vh' : '')};
+  height: ${props => (props.extendNavBar ? '23vh' : '')};
   display: flex;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   flex-direction: column;
   align-items: center;
 
@@ -138,6 +139,7 @@ const ThemeNavExtended = styled.button`
   font-size: 20px;
   margin: 10px;
   border: none;
+  cursor: pointer;
   background-color: transparent;
 `
 
