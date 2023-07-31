@@ -29,7 +29,7 @@ const NavBarContainer = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767.2px) {
     display: none;
   }
 `
