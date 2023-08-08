@@ -89,7 +89,7 @@ const PostToc: FunctionComponent<TOCProps> = function ({ headings }) {
       if (!element) {
         return
       }
-      offsets.push(element.offsetTop - 10)
+      offsets.push(element.offsetTop - 60)
     }
 
     const maxIndex = offsets.length - 1
