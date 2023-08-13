@@ -103,7 +103,7 @@ const OpenReorderIcon = styled.button`
 `
 
 const Introduction = () => {
-  const [extendNavBar, setExtendNavBar] = useState(false)
+  const [isExtendNavBar, setExtendNavBar] = useState(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
 
   /** when to trigger scroll event */
@@ -121,7 +121,7 @@ const Introduction = () => {
     <Background className={scrolled ? 'scroll' : ''}>
       <NavBar />
       <OpenReorderIcon onClick={() => setExtendNavBar(cur => !cur)}>
-        {extendNavBar ? (
+        {isExtendNavBar ? (
           <CloseIcon className="closeIcon" stroke="#000000" />
         ) : (
           <ReorderIcon className="reOrder" />
@@ -131,7 +131,7 @@ const Introduction = () => {
         <Title to={'/'}>dobyming</Title>
         <BottomNav />
       </Wrapper>
-      {extendNavBar && <ExtendNavBar extendNavBar={extendNavBar} />}
+      {isExtendNavBar && <ExtendNavBar extendNavBar={isExtendNavBar} />}
       <hr />
     </Background>
   )
