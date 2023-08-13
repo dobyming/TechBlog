@@ -2,15 +2,11 @@ import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { isBrowser } from '../../util'
-import useTheme from 'hooks/useTheme'
 import BottomNav from './../Common/Navigation/BottomNav'
 import NavBar from 'components/Common/Navigation/NavBar'
 import ReorderIcon from '../../assets/reorder.svg'
 import CloseIcon from '../../assets/close.svg'
-
-type NavBarExtendendProps = {
-  extendNavBar: boolean
-}
+import ExtendNavBar from 'components/Common/Navigation/ExtendNavBar'
 
 const Background = styled.div`
   position: fixed;
@@ -106,52 +102,11 @@ const OpenReorderIcon = styled.button`
   }
 `
 
-/* Spread Links in Tab(Reorder) button */
-const NavbarContainer = styled.div<NavBarExtendendProps>`
-  width: 100%;
-  height: ${props => (props.extendNavBar ? '100vh' : '')};
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-`
-
-const NavbarLinks = styled.div`
-  width: 100%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  a {
-    color: ${isBrowser() && window.document.body.classList.contains('dark')};
-    font-size: 20px;
-    text-decoration: none;
-    margin: 10px;
-  }
-`
-
-/* Each Link component in Extended Container */
-const NavLink = styled(Link)`
-  color: ${isBrowser() && window.document.body.classList.contains('dark')};
-  text-decoration: none;
-`
-
-const NavThemeLink = styled.button`
-  font-size: 20px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-`
-
 const Introduction = () => {
-  const [extendNavbar, setExtendNavbar] = useState(false)
+  const [extendNavBar, setExtendNavBar] = useState(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
-  const [isDark, setIsDark] = useTheme()
 
-  /* when to trigger scroll event */
+  /** when to trigger scroll event */
   const onScroll = () => setScrolled(window.scrollY > 20)
   useEffect(() => {
     if (!isBrowser) {
@@ -165,8 +120,8 @@ const Introduction = () => {
   return (
     <Background className={scrolled ? 'scroll' : ''}>
       <NavBar />
-      <OpenReorderIcon onClick={() => setExtendNavbar(cur => !cur)}>
-        {extendNavbar ? (
+      <OpenReorderIcon onClick={() => setExtendNavBar(cur => !cur)}>
+        {extendNavBar ? (
           <CloseIcon className="closeIcon" stroke="#000000" />
         ) : (
           <ReorderIcon className="reOrder" />
@@ -176,18 +131,7 @@ const Introduction = () => {
         <Title to={'/'}>dobyming</Title>
         <BottomNav />
       </Wrapper>
-      {extendNavbar && (
-        <NavbarContainer className="navBarExtended" extendNavBar={extendNavbar}>
-          <NavbarLinks>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/Search">Search</NavLink>
-            <a href="https://github.com/dobyming">GitHub</a>
-            <NavThemeLink onClick={setIsDark}>
-              {isDark ? 'Light' : 'Dark'}
-            </NavThemeLink>
-          </NavbarLinks>
-        </NavbarContainer>
-      )}
+      {extendNavBar && <ExtendNavBar extendNavBar={extendNavBar} />}
       <hr />
     </Background>
   )
