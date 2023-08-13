@@ -107,12 +107,21 @@ const OpenReorderIcon = styled.button`
 `
 
 /* Spread Links in Tab(Reorder) button */
-const NavbarExtendedContainer = styled.div<NavBarExtendendProps>`
+const NavbarContainer = styled.div<NavBarExtendendProps>`
   width: 100%;
-  height: ${props => (props.extendNavBar ? '23vh' : '')};
+  height: ${props => (props.extendNavBar ? '100vh' : '')};
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+const NavbarLinks = styled.div`
+  width: 100%;
+  height: 80%;
   display: flex;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   a {
@@ -121,21 +130,15 @@ const NavbarExtendedContainer = styled.div<NavBarExtendendProps>`
     text-decoration: none;
     margin: 10px;
   }
-
-  @media (min-width: 768px) {
-    display: none;
-  }
 `
 
 /* Each Link component in Extended Container */
-const NavbarLinkExtended = styled(Link)`
+const NavLink = styled(Link)`
   color: ${isBrowser() && window.document.body.classList.contains('dark')};
-  font-size: 20px;
   text-decoration: none;
-  margin: 10px;
 `
 
-const ThemeNavExtended = styled.button`
+const NavThemeLink = styled.button`
   font-size: 20px;
   margin: 10px;
   border: none;
@@ -169,26 +172,22 @@ const Introduction = () => {
           <ReorderIcon className="reOrder" />
         )}
       </OpenReorderIcon>
-
       <Wrapper>
         <Title to={'/'}>dobyming</Title>
         <BottomNav />
       </Wrapper>
-
       {extendNavbar && (
-        <NavbarExtendedContainer
-          className="navBarExtended"
-          extendNavBar={extendNavbar}
-        >
-          <NavbarLinkExtended to="/about">About</NavbarLinkExtended>
-          <NavbarLinkExtended to="/Search">Search</NavbarLinkExtended>
-          <a href="https://github.com/dobyming">Github</a>
-          <ThemeNavExtended onClick={setIsDark}>
-            {isDark ? 'Light' : 'Dark'}
-          </ThemeNavExtended>
-        </NavbarExtendedContainer>
+        <NavbarContainer className="navBarExtended" extendNavBar={extendNavbar}>
+          <NavbarLinks>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/Search">Search</NavLink>
+            <a href="https://github.com/dobyming">GitHub</a>
+            <NavThemeLink onClick={setIsDark}>
+              {isDark ? 'Light' : 'Dark'}
+            </NavThemeLink>
+          </NavbarLinks>
+        </NavbarContainer>
       )}
-
       <hr />
     </Background>
   )
