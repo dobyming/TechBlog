@@ -83,20 +83,18 @@ const PostToc: FunctionComponent<TOCProps> = function ({ headings }) {
     }
     const offsets: number[] = []
 
-    // bring each headings offsetTop
     for (const { slug } of headers) {
       const element = document.getElementById(slug)
       if (!element) {
         return
       }
-      offsets.push(element.offsetTop - 10)
+      offsets.push(element.offsetTop - 90)
     }
 
     const maxIndex = offsets.length - 1
     const { scrollY } = window
     let index = 0
 
-    // Scroll Active Trigger (looping the offset)
     if (scrollY === 0 || scrollY <= offsets[0]) {
       index = 0
     } else if (
